@@ -2,6 +2,7 @@ doctype html
 html
     head
          title = "Sunrise Reset | #{action_name.titlecase}" 
+         meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
          - if current_page?(action:'hear', controller:'/pages')
             = stylesheet_link_tag 'jplayer.pink.flag.min.css'
          - if current_page?(action:'see', controller:'/pages')
@@ -9,7 +10,7 @@ html
          = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
          = javascript_include_tag 'application', 'data-turbolinks-track' => true 
          meta name="description" content = "An indie band from Columbus, Ohio formerly known as Monolithic Cloud Parade. Quite possibly the most            cromulent band ever"
-         meta name ="viewport" content="width=device-width, initial-scale=1"
+         
  		 = csrf_meta_tags 
     body 
     div id= 'wrapper'
