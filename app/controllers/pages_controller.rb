@@ -2,7 +2,7 @@ class PagesController < ApplicationController
     
     def home
         @posts = Post.order(created_at: :desc).limit(30)
-        @shows = Show.order(show_date: :desc)
+        @shows = Show.order(show_date: :asc)
         
     end
     
