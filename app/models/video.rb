@@ -6,7 +6,7 @@ class Video < ActiveRecord::Base
   private 
     def get_id
          capture = []
-         match = self.embed_link.match(/(watch\?v=)(\w*)|(\.be\/)(\w*)|(embed\/)(\w*)/i).captures
+         match = self.embed_link.match(/(watch\?v=)([\w-]*)|(\.be\/)([\w-]*)|(embed\/)([\w-]*)/i).captures
             match.each do |t|
                 if t != nil
                     capture.push(t)
