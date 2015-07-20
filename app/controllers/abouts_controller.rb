@@ -9,11 +9,11 @@ end
 
     
 def edit
-    @about = About.find(About.second)
+    @about = About.find(About.first)
 end
 
 def update
-	@about = About.find(About.second)
+	@about = About.find(About.first)
 
 		if @about.update(about_params)
 			redirect_to '/about' 
