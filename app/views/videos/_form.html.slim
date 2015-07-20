@@ -1,0 +1,34 @@
+= form_for @video do |f|
+  - if @video.errors.any?
+    #error_explanation
+     .col-md-9.col-md-offset-1
+            #error_explanation
+              h4
+                = pluralize(@video.errors.count, "error ")
+                | prohibited this post from being saved:
+              ul
+                - @video.errors.full_messages.each do |msg|
+                  li.error= msg
+  .container-fluid
+    .col-md-9.col-md-offset-1.form-form
+        .form-group
+              p
+                = f.label :title
+                br/
+                = f.text_field :title, class:'form-control'
+        .form-group
+              p
+                = f.label :embed_link
+                br/
+                = f.text_field :embed_link, class:'form-control'
+                br/
+        .form-group
+              p
+                = f.label :uploader
+                br/
+                = f.text_field :uploader, class:'form-control'
+                br/
+        .form-group
+                = f.submit class: 'btn btn-primary'
+        .form-group
+                = link_to 'Back to main page', root_url, class:'btn btn-default'

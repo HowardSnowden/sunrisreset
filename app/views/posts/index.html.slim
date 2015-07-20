@@ -1,0 +1,21 @@
+.container-fluid.head-head
+   .row
+     .h1-contain
+       .col-md-12
+         h1
+           | Edit/Delete a Post
+
+.container-fluid.posts
+   .col-md-12
+     table.table
+        - @posts.each do |t|
+            tr
+              
+              td
+                h3 = t.created_at.strftime("%B #{t.created_at.day.ordinalize}, %Y")
+              td 
+                h2 = t.title
+              td
+                    = link_to 'Edit', edit_post_path(t.id), class: 'btn btn-primary'
+              td 
+                    = link_to 'Delete', post_path(t.id), method: :delete, data: {confirm: 'Are you sure?'},  class: 'btn btn-primary delete_post', remote: true

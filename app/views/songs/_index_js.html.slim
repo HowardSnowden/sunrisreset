@@ -1,0 +1,65 @@
+script src="http://connect.soundcloud.com/sdk.js"
+javascript:
+     
+    var curr_obj = {};
+    var user_id = 139020946;
+    var songIds = $('.song_link').map(function () { return $(this).text(); }).get();
+          $.ajaxSetup({
+               beforeSend: function(){
+                    $(curr_obj).parents('tr').addClass('special');
+                    },
+                complete:function(){ $(curr_obj).parents('tr').removeClass('special');
+                }
+        });
+        
+    
+    function getTrack(trackid){
+        var deferred = $.Deferred();
+        SC.get('/tracks/'+trackid, function(trackinfo){
+            deferred.resolve(trackinfo)
+          });
+            return deferred.promise();
+          }
+                  
+    
+    
+    SC.initialize({
+      client_id: '75760ad62ffb5583b3b606c5dc31cf8c'
+    });
+    
+    var soundgrab = function(){ SC.get('/users/'+user_id+'/tracks', function(tracks) {
+         
+         $.each(tracks, function(i, track){
+            if ($.inArray(String(track.id), songIds)=== -1){
+           $('.songs').append('<tr>'+'<td>'+track.title+'</td>'+
+           '<td hidden>'+track.id+'</td>'+
+           '<td><a href ='+'#'+' data-track-id='+track.id+'>Add track?</a></td>'+
+           '</tr>');
+                
+            
+            
+           }
+           });
+    });
+    }
+      
+    soundgrab();
+    
+    $('.songs').on('click','a', function(e){
+        e.preventDefault();
+        curr_obj = $(this);
+        
+          $.when(getTrack($(this).data('track-id'))).then(function(track){
+          
+            var track_art = track.artwork_url === null ? "http://i1.sndcdn.com/avatars-000131502794-129ofq-t500x500.jpg" : track.artwork_url
+             $.post('/songs/', {"song":{"song_link":track.id,"title":track.title, "lyrics":track.description, "song_image":track_art}})
+                .done(function(){
+                      
+                       curr_obj.parent().parent('tr').remove();
+                      $('.dynamic').load('/songs/dynamic_index');
+                });
+            });
+          
+         
+        });
+   

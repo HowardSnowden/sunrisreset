@@ -1,0 +1,37 @@
+javascript:
+   
+   var cur_elem = '#what';
+   var icon = " <i class= 'fa fa-play'> </i>";
+   var prev_click = $('#what_link');
+   init_about();
+    $('.about_links a').click(function(e){
+      
+      e.preventDefault();
+      var cur_id = '#'+$(this).attr('id').match(/^[a-zA-Z]+/);
+             $(this).parent('li').append(icon);
+             $(prev_click).parent('li').find('i').remove();
+             
+             $(cur_elem).fadeOut(200);
+             $(cur_id).fadeIn(500);
+             cur_elem = cur_id
+             prev_click = $(this);
+      
+      });
+     
+      
+      
+      function init_about(){
+      
+          $('#what').css({
+           'display' : 'block',
+           'margin-left' : '0%',
+           });
+           
+           $("#what_link").parent('li').append(icon);
+           
+          
+          }
+           
+  
+          
+   

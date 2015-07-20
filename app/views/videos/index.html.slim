@@ -1,0 +1,26 @@
+.container-fluid.head-head
+   .row
+     .h1-contain
+       .col-md-12
+         h1
+           | Edit/Delete Videos
+
+.container-fluid.posts
+   .col-md-12
+     table.table
+        - @videos.each do |t|
+            tr
+              
+              td
+                h3 = t.created_at.strftime("%B #{t.created_at.day.ordinalize}, %Y")
+              td 
+                h2 = t.title
+              td
+                img.img-thumbnail src= "#{get_thumbnail(t.vid_id)}"
+              td 
+                a href = t.embed_link 
+                    = t.embed_link
+              td
+                    = link_to 'Edit', edit_video_path(t.id), class: 'btn btn-primary'
+              td 
+                    = link_to 'Delete', video_path(t.id), method: :delete, data: {confirm: 'Are you sure?'},  class: 'btn btn-primary delete_video', remote: true

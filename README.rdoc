@@ -1,0 +1,23 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+
+* To do: Create cms for news feed/need markdown capability and ability to add pictures/mostly done
+
+* Create Video Pages...use custom youtube player in the banner with videos listed underneath..back to top link at bottom
+
+* Create sound page...use soundcloud api with jplayer--list songs underneath banner
+
+* About page...picture and long manifesto
+
+* Contact page...form that sends to band e-mail
+
+* Show date side bar for main page perhaps
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

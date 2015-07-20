@@ -1,0 +1,44 @@
+- if admin_signed_in?
+    = render 'devise/menu/login_items'
+
+nav.navbar.navbar-default
+
+    .container-fluid id='head-img' style= "background-image: url(#{@back_img})"
+        -if current_page?(:controller => '/pages', action:'home')
+            =render 'layouts/homeheader'
+        -if current_page?(:controller => '/pages', action:'hear')
+            =render 'layouts/hearcontrols'
+        -if current_page?(:controller => '/pages', action:'about')
+            =render 'layouts/theband'
+        -if current_page?(:controller => '/pages', action:'contact')
+            =render 'layouts/contactheader'
+        -if current_page?(:controller => '/pages', action:'see')
+            iframe#ytplayer {allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/#{@videos.first.vid_id}?                      controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=1&color=white&theme=light&origin=http://localhost:3000" 
+                            type="text/html"              width="900"}
+        
+        
+        ul.nav.navbar-nav.pull-right.staticNav id='main-nav'
+                    
+                    li.hidden-md.hidden-lg.hideNav
+                      = link_to "hideNav"
+                         i.fa.fa-bars.fa-2x
+                    
+                    li
+                        = link_to "Home", root_url
+                    li  
+                        = link_to "See",  see_path
+                    li 
+                        = link_to "Hear", hear_path
+                    li 
+                        = link_to "About", about_path
+                    li
+                        = link_to "Contact", contact_path
+                    li.social
+                       a href='https://www.facebook.com/SunriseReset'
+                        i.fa.fa-facebook.fa-2x
+                    li.social
+                       a href = 'https://twitter.com/sunrisereset'
+                        i.fa.fa-twitter.fa-2x
+
+            
+             

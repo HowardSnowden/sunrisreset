@@ -1,0 +1,68 @@
+script src="http://connect.soundcloud.com/sdk.js"
+= javascript_include_tag 'jquery.jplayer.min.js'
+javascript:
+  var SOUNDCLOUD_API = 'http://api.soundcloud.com';
+   var CLIENT_ID = '?client_id=75760ad62ffb5583b3b606c5dc31cf8c';
+    
+    var song_obj = {
+    song1 : {},
+    song2 : {}
+    };
+    
+    $('.songs, #song-list').on('click', 'a', function(e){
+      e.preventDefault();
+      var songId = $(this).attr('href');
+      var description = $('.desc[href$='+songId+'] .lyrics').text();
+      var image = $('.desc[href$='+songId+'] .image').text();
+      var icon = " <i class= 'fa fa-play'> </i>";
+      
+      $(song_obj.song1).find('i').remove();
+      $(song_obj.song2).find('i').remove();
+      song_obj.song1 = $(this);
+      song_obj.song2 = $(this).closest('ul').hasClass('songs') ? $('#song-list a[href$='+songId+']') : $('.songs a[href$='+songId+']');
+      
+      
+      
+      $('.song_title, .head-head h1').text(' '+$(this).text());
+      $('.description').text(description);
+      $('.artwork').attr('src', image);
+      $(this).append(icon);
+      $(song_obj.song2).append(icon);
+       
+       $("#jquery_jplayer_1").jPlayer('destroy');
+       $.get(SOUNDCLOUD_API + '/tracks/'+songId+'.json'+ CLIENT_ID)
+        .done(handleResponse);
+        function handleResponse(soundData){
+        $("#jquery_jplayer_1").jPlayer({
+          ready: function () {
+            $(this).jPlayer("setMedia", {
+              // stream_url is good enough for jPlayer,
+              mp3: soundData.stream_url + CLIENT_ID,
+              title: soundData.title
+          
+            }).jPlayer('play')
+            .bind($.jPlayer.event.timeupdate, self.update_timer);;
+          },
+          swfPath: "http://www.jplayer.org/2.1.0/js"
+        })
+      }
+      
+      });
+     
+    // controls
+    $("#pause").click( function() {
+        $("#jquery_jplayer_1").jPlayer("pause");
+        });
+    $("#play").click( function() {
+        $("#jquery_jplayer_1").jPlayer("play");
+        });
+    $("#stop").click( function() {
+        $("#jquery_jplayer_1").jPlayer("stop");
+    });
+    self.update_timer = function (event) {
+    var status = event.jPlayer.status;
+    $('.jtimer').text($.jPlayer.convertTime(status.duration - status.currentTime));
+        };
+
+   
+    

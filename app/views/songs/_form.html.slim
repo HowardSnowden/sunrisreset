@@ -1,0 +1,35 @@
+= form_for @song do |f|
+  - if @song.errors.any?
+      .container-fluid
+        .col-md-9.col-md-offset-1
+            #error_explanation
+              h4
+                = pluralize(@song.errors.count, "error ")
+                | prohibited this post from being saved:
+              ul
+                - @song.errors.full_messages.each do |msg|
+                  li.error= msg
+  .container-fluid
+    .col-md-9.col-md-offset-1.form-form
+        .form-group
+              p
+                = f.label :title
+                br/
+                = f.text_field :title, class:'form-control'
+        .form-group
+              p
+                = f.label :song_image
+                br/
+                = f.text_field :song_image, class:'form-control'
+                br/
+              img.img-responsive.preview src =  @song.song_image 
+        .form-group
+              p
+                = f.label :lyrics, 'Lyrics/Description'
+                br/
+                = f.text_area :lyrics, class:'form-control', data:{provide:'markdown'}, rows:20
+                br/
+        .form-group
+                = f.submit class: 'btn btn-primary'
+        .form-group
+                = link_to 'Back to main page', root_url, class:'btn btn-default'

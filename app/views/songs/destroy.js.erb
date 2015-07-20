@@ -1,0 +1,9 @@
+
+$('.songs').empty();
+$('.dynamic').load('/songs/dynamic_index', function(){
+songIds = $('.song_link').map(function () { return $(this).text(); }).get();
+soundgrab();  
+    
+});
+
+

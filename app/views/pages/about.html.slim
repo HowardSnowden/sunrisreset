@@ -1,0 +1,40 @@
+.container-fluid
+  .row
+    .h1-contain
+      h1 
+        | The Band Story
+
+.container-fluid.about
+  
+  .row
+    .col-md-2.col-sm-2 id='about_nav'
+      ul.about_links
+       li
+        = link_to 'What', '#', id: 'what_link' 
+       li
+        = link_to 'Who', '#',   id: 'who_link'
+       li
+        = link_to 'When', '#', id: 'when_link'
+       li
+        = link_to 'Where', '#', id: 'where_link'
+       li
+        = link_to 'Why', '#',   id: 'why_link'
+        
+    .col-md-10.col-sm-10
+      div id= 'about_text'
+         div id='what' 
+            = convert_post(@abouts.what)
+         div id='why'
+            = convert_post(@abouts.why)
+         div id='where' 
+            = convert_post(@abouts.where)
+         div id='when'
+            = convert_post(@abouts.when)
+         div id='who'
+            = convert_post(@abouts.who)
+    
+    
+
+= render 'about_script'
+    
+                

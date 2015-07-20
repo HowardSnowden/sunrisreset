@@ -1,0 +1,32 @@
+.container-fluid.head-head
+   .row
+     .h1-contain
+       .col-md-12
+         h1
+           = @songs.first.title
+
+.container-fluid.hear
+  .row
+    .col-md-2.hidden-xs.hidden-sm
+        h4 = "Song List"
+        ul.songs.scroll-pane
+             -@songs.each do |t|
+                li 
+                  a href = t.song_link
+                    = t.title   
+  
+    .col-md-5
+       img.img-responsive.artwork src = @songs.first.song_image
+    .col-md-5
+       h2 = "Behind the music: "
+       p.description
+            = @songs.first.lyrics
+       - @songs.each do |t|
+         a href = t.song_link hidden=true class = 'desc'
+          span.lyrics = t.lyrics
+          span.image = t.song_image
+       
+    
+= render 'hear_script'
+           
+                    

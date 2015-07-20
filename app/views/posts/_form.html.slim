@@ -1,0 +1,28 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    .container-fluid
+        .col-md-9.col-md-offset-1
+            #error_explanation
+                  h4
+                    = pluralize(@post.errors.count, "error ")
+                    | prohibited this post from being saved:
+                  ul
+                    - @post.errors.full_messages.each do |msg|
+                      li.error= msg
+  .container-fluid.posts
+    .col-md-9.col-md-offset-1
+        .form-group
+              p
+                = f.label :title
+                br/
+                = f.text_field :title, class:'form-control'
+        .form-group
+              p
+                = f.label :body
+                br/
+                = f.text_area :body, class: 'form-control', data:{provide:'markdown'}, rows:20
+                br/
+        .form-group
+                = f.submit class: 'btn btn-primary'
+        .form-group
+                = link_to 'Back to main page', root_url, class:'btn btn-default'

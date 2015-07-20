@@ -1,0 +1,16 @@
+.container-fluid.head-head
+   .row
+     .h1-contain
+       .col-md-12
+         h1
+           | Sunrise Reset Happenings
+       
+.container-fluid.posts
+    - @posts.each do |t|
+      .row
+        .col-md-12.col-sm-12.col-xs-12
+         h2.title = t.title
+         h4.date  = t.created_at.strftime("%B #{t.created_at.day.ordinalize}, %Y")
+         div.body = convert_post(t.body)
+        
+ 

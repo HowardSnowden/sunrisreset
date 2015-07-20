@@ -1,0 +1,33 @@
+.container-fluid id='homeheader'
+    .col-md-12.col-xs-12.col-sm-12
+        .logo
+            
+            img.img-responsive width='300px' src= image_path('sunriselogo.png')
+            h2
+              | A little band from Columbus, Ohio..
+            .btn.btn-primary
+                | View Upcoming Shows
+                
+        .shows.col-md-8.col-xs-12.col-sm-12.col-md-offset-2
+            - @shows.each do |t|
+             .shower
+                h2 
+                   | Where: 
+                   span = convert_post(t.venue)
+                  
+                h2 
+                    span = t.address
+                h2   
+                    | When:  
+                    span = t.show_date
+                h2   
+                    | Starts at 
+                    span = t.start_time.strftime("%I:%M%p")
+                h2  
+                    | Playing with: 
+                    -if t.bands
+                        span = convert_post(t.bands)
+                h2  
+                    | Costs: 
+                    span = t.cover
+            

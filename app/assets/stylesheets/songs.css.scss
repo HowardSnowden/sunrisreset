@@ -1,0 +1,141 @@
+// Place all the styles related to the songs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.hear {
+     padding-top:50px;
+     padding-bottom:75px;
+
+    img{padding-top:40px;
+        padding-bottom:40px;
+    }
+   h2, h4{
+       margin-top:0px;
+   }
+    h2{
+       border-bottom:solid 2px pink;
+       color:#ff0093;
+   }
+    h4{
+        
+        padding:15px;
+        color:#ff00c4;
+        
+    }
+   .songs{
+       padding:0px;
+       margin-top:-20px;
+        background-color:#ff0093;
+       margin-right:-20px;
+       height:500px;
+       overflow-y:scroll;
+       
+    li{
+       
+        width:85%;
+        padding-left:5px;
+        padding-bottom:5px;
+         border-bottom: solid 1px pink;
+        
+    a{
+        font-size:0.85em;
+       word-wrap: break-word;
+        color:#ffbdff !important;
+        letter-spacing:1px;
+       
+    }
+    }
+   }
+ }
+
+.controls{
+    margin-left:-15px !important;
+    margin-right: -15px !important;
+    background-color:rgba(0, 0, 0, 0.41);
+     min-height:150px;
+    max-height:400px;
+    
+  h3{
+     font-family:"Permanent Marker", cursive;
+      color:#ff04b2;
+      display:inline;
+  }
+  
+    .song_title{
+        font-family:"Oswald", sans-serif;
+        color:white;
+        padding:10px;
+        
+    }
+        
+       
+        .control-group{
+      margin-top:15px;
+      padding-left:0px;
+      
+      li{
+          display:inline;
+          padding-right:10px;
+          a{
+              cursor:pointer;
+          }
+      }
+  }
+    .jtimer{
+        font-family:"Raleway", sans-serif;
+        color:white;
+    }
+    }
+  
+
+
+  #song-list{
+      max-height:150px;
+      overflow-y:scroll;
+      overflow-x:hidden;
+      border:solid 2px #ff00d8;
+     
+      ol{
+          list-style:none;
+          
+          padding:10px;
+          
+      }
+      li {
+          display:list-item;
+          padding-left:0px;
+         padding-top:5px;
+          padding-bottom:5px;
+          border-bottom:solid 1px blue;
+          margin-top:5px;
+        a{
+            font-size:0.98em;
+            color:#729dff;
+            
+        }
+          
+      }
+      
+      
+      
+  }
+.jspDrag {
+    background-color: rgba(255, 0, 206, 0.77);
+    border-radius:10px;
+}
+
+
+
+.jspVerticalBar {
+    background-color: transparent;
+}
+
+.jspHorizontalBar { display: none !important; }
+
+.jspTrack{
+ background:url() 0 0 repeat-y rgba(245, 0, 255, 0);
+  
+}
+
+

@@ -1,0 +1,18 @@
+.container-fluid.head-head
+   .row
+     .h1-contain
+       .col-md-12
+         h1
+           | Videos
+
+
+.container-fluid.videos
+  ul.row
+    - @videos.each do |t|
+        li.col-md-3.col-sm-4.col-xs-12
+            h2.col-md-12 = t.title
+            h5.col-md-12 = "Uploaded by: #{t.uploader}"
+            img.img-thumbnail src= "#{get_thumbnail(t.vid_id)}"
+            p.vid_id hidden=true 
+                = t.vid_id
+                

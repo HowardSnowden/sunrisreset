@@ -1,0 +1,31 @@
+nav.navbar.navbar-default.navbar-fixed-top id='admin_nav'
+   ul.nav.navbar-nav.pull-right
+      li.dropdown id='admin-down'
+        a.dropdown-toggle data-toggle='dropdown' role='button' href='#' 
+            | Admin Actions
+            span.caret
+        ul.dropdown-menu role='menu'
+            li 
+                a href = new_post_path Create Post
+            li
+                a href = posts_path Edit/Delete a Post
+            
+            li role="separator" class="divider" 
+            
+            li
+                a href= new_video_path Add Video
+            li 
+                a href= videos_path Edit/Delete a Video
+            
+            li role="separator" class="divider" 
+            
+            li 
+                a href= '/songs' Add Songs
+            li 
+                a href= abouts_edit_path Edit About Page
+            li 
+                a href = new_show_path Add Show Date
+      li
+        = link_to('Logout', destroy_admin_session_path, :method => :delete)
+
+ 

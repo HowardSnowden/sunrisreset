@@ -1,0 +1,127 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#homeheader{
+    background-color:rgba(255, 0, 167, 0.58);
+;
+    margin-left:-15px !important;
+    margin-right:-15px !important;
+    margin-top:0px;
+    padding-top:5px;
+    padding-bottom:5px;
+    position:relative;
+    overflow:hidden;
+   img{
+       display:block;
+       margin-right:auto;
+       margin-left:auto;
+       
+   }
+    
+    h2{
+        color:#fff;
+//        text-shadow: 3px 1px 2px rgba(0, 0, 0, 1);
+        letter-spacing:2px;
+       text-align:center;
+        border-bottom:none;
+        display:block;
+        font-size:1.3em;
+    }
+    
+    
+    .btn {
+        background-color:rgba(0, 118, 255, 0.88);
+        font-family: 'Oswald', sans-serif;
+        letter-spacing:2px;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        font-size:1.1em;
+        max-width:300px;
+    
+    }
+    
+    .btn:hover{
+        background-color:#ff3f82;}
+    
+    .logo{
+        
+      display:block;
+    }
+    
+    
+}
+
+
+
+
+.shows{
+    position:absolute;
+    left:150%;
+    top:0%;
+    margin-bottom:400px;
+    margin-top:50px;
+  .shower{
+      background-color:rgba(0, 0, 0, 0.35);
+      margin-right:auto;
+      margin-left:auto;
+      h2{
+          text-align:left !important;
+          padding:10px;
+          font-size:2em !important;
+          
+        span{
+            color: #ffd93a;
+            font-family: "Permanent Marker", cursive;
+            a {
+                text-decoration:underline !important;
+                font-family: "Permanent Marker", cursive !important;
+                display:inline !important;
+            }
+            p{
+                font-family: inherit;
+                display:inherit;
+                font-size:inherit;
+            }
+        }
+      }
+     
+  }
+    
+}
+
+
+.container-fluid form{
+
+}
+
+.container-fluid.posts{
+    position:relative;
+    padding-top:75px;
+    border:solid 5px #ff00a7;
+    padding-bottom:75px;
+
+    .row{
+
+        margin-bottom:50px;
+    
+       
+        img{
+         
+         margin: 0 20px 20px 0;
+        max-width:85%;
+        float:left;
+        }
+    }
+    
+    .body{
+        
+        p{
+    
+            word-wrap: break-word;
+            
+        }
+    }
+}
+

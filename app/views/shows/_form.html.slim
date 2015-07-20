@@ -1,0 +1,52 @@
+= form_for @show do |f|
+  - if @show.errors.any?
+    .container-fluid
+        .col-md-9.col-md-offset-1
+                #error_explanation
+                  h4
+                    = pluralize(@song.errors.count, "error ")
+                    | prohibited this post from being saved:
+                  ul
+                    - @song.errors.full_messages.each do |msg|
+                      li.error= msg
+  .container-fluid
+    .col-md-9.col-md-offset-1
+        .form-group
+              p
+                = f.label :show_date
+                br/
+                = f.date_select :show_date,  class:'form-control', start_year: Date.today.year,  :prompt => { :day => 'Select day', :month => 'Select                    month', :year => 'Select year'}
+        .form-group
+              p
+                = f.label :venue
+                br/
+                = f.text_area :venue, class: 'form-control', data:{provide:'markdown'}, rows:2
+                br/
+        .form-group
+                p
+                = f.label :address
+                br/
+                = f.text_field :address, class: 'form-control'
+                br/
+        .form-group
+               p
+                = f.label :cover
+                br/
+                = f.text_field :cover, class: 'form-control'
+                br/
+        .form-group
+               p
+                = f.label :bands
+                br/
+                = f.text_area :bands, class: 'form-control', data:{provide:'markdown'}, rows:3
+                br/
+        .form-group
+                p
+                = f.label :start_time
+                br/
+                = f.time_field :start_time, class: 'form-control'
+                br/
+        .form-group
+                = f.submit class: 'btn btn-primary'
+        .form-group
+                = link_to 'Back to main page', root_url, class:'btn btn-default'

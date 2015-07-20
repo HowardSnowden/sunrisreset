@@ -1,0 +1,6 @@
+javascript:
+    $('#song_song_image').focusout(function(){
+        if ( $('#song_song_image').val() !== ""){
+        $('.preview').attr('src', $('#song_song_image').val());
+        }
+        });

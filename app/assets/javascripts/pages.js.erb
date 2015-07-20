@@ -1,0 +1,186 @@
+
+var ready = function(){
+   //image logic
+    
+        
+    $('.body img').css('float', 'left');
+    
+    
+    
+    
+
+    
+    //show logic
+    
+    $('.logo .btn').click(function(e){
+    e.preventDefault();
+
+    if ($('.logo .btn').text() === 'View Upcoming Shows'){
+    
+    $('#homeheader').animate({'height': '100%'},200, function(){
+         $('#body, #footer, #main-nav, .logo h2, .logo img').hide();
+    $('.logo').css({'position':'fixed', 'top':'0', 'z-index':'100', 'width': '100%', 'margin-left':'-30px'});
+    $('.logo .btn').css({'width':'100%', 'max-width':'none', 'background-color':'rgba(133, 114, 242, 0.59)', 'display':'block'})
+            .html('Return to Main Page');
+    $('#homeheader').css('overflow-y', 'scroll');
+    $('body').css('overflow', 'hidden');
+    $('.shows').animate({'left':'0%'}, 500);
+    
+    });
+   
+    }
+        
+    else {
+         
+        $('.shows').animate({'left':'150%'}, 200, function(){
+            $('body').css('overflow', 'auto');
+        $('#homeheader').css('overflow', 'hidden');
+        $('.logo .btn').css({'width':'inherit', 'max-width':'300px', 'background-color':'rgba(0, 118, 255, 0.88)', 'display':'block'})
+            .html('View Upcoming Shows');
+        $('.logo').css({'position':'static', 'width': 'inherit', 'margin-left':'auto'});
+        $('#body, #footer, #main-nav, .logo h2, .logo img').fadeIn();
+         $('#homeheader').animate({'height':'38%'}, 200);
+            
+        });
+    
+    }
+    
+    });
+    
+    //sticky menu
+    
+        var stickyNavTop = $('#main-nav').offset().top;
+        
+        var stickyNav = function(){
+        var scrollTop = $(window).scrollTop();
+
+        if (scrollTop > stickyNavTop  ) { 
+            $('#main-nav').removeClass('staticNav');
+            $('#main-nav').addClass('sticky');
+          if (!$('.hideNav ~ li').hasClass('gone')){
+            $('#main-nav').removeClass('staticColor');
+            $('#main-nav').addClass('stickColor');
+          }
+           
+        } else {
+            $('#main-nav').removeClass('sticky'); 
+            $('#main-nav').addClass('staticNav'); 
+            $('#main-nav').removeClass('stickColor');
+             $('#main-nav').addClass('staticColor');
+        }
+        };
+
+        stickyNav();
+
+        $(window).scroll(function() {
+            stickyNav();
+});
+
+ ///mobile hide
+    $('#main-nav .fa-bars, .hideNav').click(function(e){
+        e.preventDefault();
+        if (!$('.hideNav ~ li').hasClass('gone')){
+    $('.hideNav ~ li').animate({'margin-right':'-100%'}, 200, function(){
+        $(this).addClass('gone');
+        $('#main-nav').removeClass('stickColor');
+        $('main-nav').addClass('staticColor');
+
+    });
+        }
+       else { 
+           $('.hideNav ~ li').animate({'margin-right':'0%'}, 200, function(){
+            $(this).removeClass('gone');
+            if ($('#main-nav').css('position') === 'fixed'){
+           $('#main-nav').removeClass('staticColor');
+           $('#main-nav').addClass('stickColor');
+            }
+           
+    });
+       }
+    });
+        
+        
+   $(window).resize(function(){
+        if ($(window).width() > 500 && $('.hideNav ~ li').hasClass('gone')){
+            $('.hideNav ~ li').css({'margin-right':'0%'}).removeClass('gone');
+        }
+    });
+    
+        
+
+    
+$(function()
+{
+	$('.scroll-pane').each(
+		function()
+		{
+			$(this).jScrollPane(
+				{
+					showArrows: $(this).is('.arrow')
+				}
+			);
+			var api = $(this).data('jsp');
+			var throttleTimeout;
+			$(window).bind(
+				'resize',
+				function()
+				{
+					if (!throttleTimeout) {
+						throttleTimeout = setTimeout(
+							function()
+							{
+								api.reinitialise();
+								throttleTimeout = null;
+							},
+							50
+						);
+					}
+				}
+			);
+		}
+	)
+
+});
+    
+    
+$("input[name='commit']").click(function(){
+    $(this).addClass('ajax-loading');
+});
+$(document).ajaxStart(function(){
+    $('.btn').val("Sending your message...")
+    
+});
+
+ 
+ $(document).on( "ajax:error", "form", function(evt, xhr, status, error) {
+   var errors = xhr.responseJSON.error
+   $('#errors').html("");
+   $('.btn').val("Send Message");
+   $("input[name='commit']").removeClass('ajax-loading');
+   $.each(errors, function(key, val){
+      $('#errors').append('<li class ="error">' + val + '</li>');    
+ });
+ });
+};
+
+
+
+
+
+     
+     
+     
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+
+   
+
+
+   
+
+    
+
+    
+
+
