@@ -22,7 +22,7 @@ class PagesController < ApplicationController
     end
     
     def about
-        @abouts = About.second
+        @abouts = About.first
         @back_img = view_context.image_path('moon.jpg')
         
     end 
