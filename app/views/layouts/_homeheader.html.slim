@@ -22,7 +22,8 @@
                     span = t.show_date
                 h2   
                     | Starts at 
-                    span = t.start_time.strftime("%I:%M%p")
+                    -if t.start_time
+                        span = t.start_time.strftime("%I:%M%p")
                 h2  
                     | Playing with: 
                     -if t.bands
