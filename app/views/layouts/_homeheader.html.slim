@@ -19,7 +19,7 @@
                     span = t.address
                 h2   
                     | When:  
-                    span = t.show_date
+                    span = t.show_date.strftime("%A, %B #{t.show_date.day.ordinalize}, %Y")
                 h2   
                     | Starts at 
                     -if t.start_time

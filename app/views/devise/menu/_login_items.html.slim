@@ -21,10 +21,17 @@ nav.navbar.navbar-default.navbar-fixed-top id='admin_nav'
             
             li 
                 a href= '/songs' Add Songs
+                
+            li role="separator" class="divider" 
+            
             li 
                 a href= abouts_edit_path Edit About Page
+                
+            li role="separator" class="divider" 
             li 
                 a href = new_show_path Add Show Date
+            li
+                a href = shows_path Edit/Delete Shows
       li
         = link_to('Logout', destroy_admin_session_path, :method => :delete)
 

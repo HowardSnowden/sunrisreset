@@ -1,6 +1,11 @@
 class ShowsController < ApplicationController
  before_filter :authenticate_admin!   
     
+def index
+    @shows = Show.all
+end
+    
+    
 def new
     @show = Show.new
 end
@@ -16,9 +21,28 @@ end
 
     
 def edit
+    @show  = Show.find(params[:id])
 end
     
-def delete
+def update
+ @show = Show.find(params[:id])
+
+		if @show.update(show_params)
+			redirect_to '/shows'
+		else
+			render 'edit'
+		end
+end
+    
+def destroy
+  @show = Show.find(params[:id])
+    @show.destroy
+
+    respond_to do |format|
+      format.html { redirect_to 'index' }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
 end 
 
 def show_params
