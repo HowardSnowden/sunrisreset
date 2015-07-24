@@ -16,7 +16,8 @@ var ready = function(){
     e.preventDefault();
 
     if ($('.logo .btn').text() === 'View Upcoming Shows'){
-    
+    $(window).scrollTop(0);
+    $('#head-img').css('height', '1000px');
     $('#homeheader').animate({'height': '100%'},200, function(){
          $('#body, #footer, #main-nav, .logo h2, .logo img').hide();
     $('.logo').css({'position':'fixed', 'top':'0', 'z-index':'100', 'width': '100%', 'margin-left':'-30px'});
@@ -39,8 +40,9 @@ var ready = function(){
             .html('View Upcoming Shows');
         $('.logo').css({'position':'static', 'width': 'inherit', 'margin-left':'auto'});
         $('#body, #footer, #main-nav, .logo h2, .logo img').fadeIn();
+            $('#head-img').css('height', '700px'); 
          $('#homeheader').animate({'height':'38%'}, 200);
-            
+           
         });
     
     }
@@ -98,6 +100,12 @@ var ready = function(){
     });
        }
     });
+    
+    if ($('.fa-bars').is(':visible')){
+        $('.hideNav ~ li').css({'margin-right':'-100%'});
+        $('.hideNav ~ li').addClass('gone');
+    }
+    
         
         
    $(window).resize(function(){
