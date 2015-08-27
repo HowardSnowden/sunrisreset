@@ -34,18 +34,20 @@ var ready = function(){
         
     else {
          
-        $('.shows').animate({'left':'150%'}, 200, function(){
-            $('body').css('overflow', 'auto');
-        $('#homeheader').css('overflow', 'hidden');
-        $('.logo .btn').css({'width':'inherit', 'max-width':'300px', 'background-color':'rgba(0, 118, 255, 0.88)', 'display':'block'})
-            .html('View Upcoming Shows');
-        $('.logo').css({'position':'static', 'width': 'inherit', 'margin-left':'auto'});
-        $('#body,  #main-nav, .logo h2, .logo img').fadeIn();
-            $('#head-img').css('height', '700px'); 
-         $('#homeheader').animate({'height':'38%'}, 100);
-           
+        $('.shows').animate({'left':'150%'}, 300, function(){
+                $('body').css('overflow', 'auto');
+                $('#homeheader').css('overflow', 'hidden');
+                $('.logo .btn').css({'width':'inherit', 'max-width':'300px', 'background-color':'rgba(0, 118, 255, 0.88)', 'display':'block'})
+                .html('View Upcoming Shows');
+                $('.logo').css({'position':'static', 'width': 'inherit', 'margin-left':'auto'});
+                $('#body,  #main-nav, .logo h2, .logo img').fadeIn();
+                
+                $('#homeheader').animate({'height':'38%'}, 200, function(){
+                     $('#head-img').css({'height':'700px', 'background-attachment':'scroll'}); 
+                     
+
         });
-    
+              $(window).scrollTop(0)});
     }
     
     });
