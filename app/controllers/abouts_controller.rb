@@ -1,3 +1,5 @@
+#this controller handles the about page
+#GGGOOOOOOOOOOOOOO
 class AboutsController < ApplicationController
 
 before_filter :authenticate_admin!   

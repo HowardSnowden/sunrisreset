@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>module FastRequire - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-already_loaded">::already_loaded</a>
+    
+    <li ><a href="#method-c-clear_all-21">::clear_all!</a>
+    
+    <li ><a href="#method-c-default_save">::default_save</a>
+    
+    <li ><a href="#method-c-dir">::dir</a>
+    
+    <li ><a href="#method-c-guess_discover">::guess_discover</a>
+    
+    <li ><a href="#method-c-load">::load</a>
+    
+    <li ><a href="#method-c-loc">::loc</a>
+    
+    <li ><a href="#method-c-require_locs">::require_locs</a>
+    
+    <li ><a href="#method-c-sanitize">::sanitize</a>
+    
+    <li ><a href="#method-c-save">::save</a>
+    
+    <li ><a href="#method-c-setup">::setup</a>
+    
+    <li ><a href="#method-c-string_array_cruddy_hash">::string_array_cruddy_hash</a>
+    
+    <li ><a href="#method-i-require_cached">#require_cached</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-FastRequire">
+  <h1 id="module-FastRequire" class="module">
+    module FastRequire
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ALL_IN_PROCESS">ALL_IN_PROCESS
+        
+        <dd>
+        
+      
+        <dt id="IN_PROCESS">IN_PROCESS
+        
+        <dd>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-already_loaded" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">already_loaded</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="already_loaded-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">already_loaded</span>
+  <span class="ruby-identifier">@@already_loaded</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-clear_all-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_all!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>for testing use only, basically</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear_all-21-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clear_all!</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fileutils&#39;</span>
+  <span class="ruby-identifier">success</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">@@dir</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">@@dir</span> 
+    <span class="ruby-identifier">success</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">@@require_locs</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-identifier">setup</span>
+  <span class="ruby-identifier">success</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_save</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_save-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_save</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span> <span class="ruby-identifier">@@loc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dir-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dir</span>
+  <span class="ruby-identifier">@@dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-guess_discover" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess_discover</span><span
+            class="method-args">(partial_name, add_dot_rb = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>try to see where this file was loaded from, from $: partial_name might be
+abc.rb, or might be abc partial_name might be a full path, too</p>
+          
+          
+
+          
+          <div class="method-source-code" id="guess_discover-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">guess_discover</span> <span class="ruby-identifier">partial_name</span>, <span class="ruby-identifier">add_dot_rb</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-comment"># test for full path first</span>
+  <span class="ruby-comment"># unfortunately it has to be a full separate test</span>
+  <span class="ruby-comment"># for windoze sake, as drive letter could be different than slapping a &#39;/&#39; on the dir to test list...</span>
+  <span class="ruby-identifier">tests</span> = [<span class="ruby-identifier">partial_name</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">add_dot_rb</span>
+    <span class="ruby-identifier">tests</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">partial_name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;.rb&#39;</span>
+    <span class="ruby-identifier">tests</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">partial_name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;.&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;DLEXT&#39;</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">tests</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># assume that .rb.rb is...valid...?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">b</span>) <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">b</span>[<span class="ruby-value">-3</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;.rb&#39;</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">b</span>[<span class="ruby-value">-3</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;.&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;DLEXT&#39;</span>]))
+      <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">b</span>)
+    <span class="ruby-keyword">end</span>
+  }
+
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">dir</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">$:</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">b</span> = (<span class="ruby-identifier">dir</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;/&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">partial_name</span>))
+      <span class="ruby-comment"># make sure we require a file that has the right suffix...</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">b</span>[<span class="ruby-value">-3</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;.rb&#39;</span>)  <span class="ruby-operator">||</span> (<span class="ruby-identifier">b</span>[<span class="ruby-value">-3</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;.&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;DLEXT&#39;</span>])
+        <span class="ruby-keyword">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">b</span>)
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">add_dot_rb</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">partial_name</span>[<span class="ruby-value">-3</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;.rb&#39;</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">partial_name</span>[<span class="ruby-value">-3</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;.&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;DLEXT&#39;</span>])
+    <span class="ruby-identifier">guess_discover</span>(<span class="ruby-identifier">partial_name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;.rb&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">guess_discover</span>(<span class="ruby-identifier">partial_name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;.&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-identifier">cached_marshal_data</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;rb&#39;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span>}
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">@@require_locs</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">restore</span>( <span class="ruby-identifier">cached_marshal_data</span> )
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+    <span class="ruby-identifier">@@require_locs</span>= {}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-loc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">loc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="loc-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">loc</span>
+  <span class="ruby-identifier">@@loc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-require_locs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require_locs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="require_locs-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">require_locs</span>
+  <span class="ruby-identifier">@@require_locs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-sanitize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sanitize</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sanitize-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sanitize</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[\/:]/</span>, <span class="ruby-string">&#39;_&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">(to_file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span> <span class="ruby-identifier">to_file</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">to_file</span>, <span class="ruby-string">&#39;wb&#39;</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">@@require_locs</span>)}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">setup</span>
+  <span class="ruby-keyword">begin</span>
+   <span class="ruby-identifier">@@dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;~/.ruby_faster_require_cache&#39;</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> <span class="ruby-comment"># couldn&#39;t find HOME environment or the like</span>
+   <span class="ruby-identifier">whoami</span> = <span class="ruby-value">%x`whoami`</span>.<span class="ruby-identifier">strip</span>
+   <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">home</span> = <span class="ruby-node">&quot;/home/#{whoami}&quot;</span>)
+    <span class="ruby-identifier">@@dir</span> = <span class="ruby-identifier">home</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;/.ruby_faster_require_cache&#39;</span>
+   <span class="ruby-keyword">else</span>
+     <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; and couldnt infer it from whoami&quot;</span>
+   <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">@@dir</span>)
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-identifier">@@dir</span> 
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;unable to create user dir for faster_require &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">@@dir</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">@@dir</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">config</span> = <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>
+  
+  <span class="ruby-comment"># try to be a unique, but not too long, filename, for restrictions on filename length in doze</span>
+  <span class="ruby-identifier">ruby_bin_name</span> = <span class="ruby-identifier">config</span>[<span class="ruby-string">&#39;bindir&#39;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">config</span>[<span class="ruby-string">&#39;ruby_install_name&#39;</span>] <span class="ruby-comment"># needed if you have two rubies, same box, same ruby description [version, patch number]</span>
+  <span class="ruby-identifier">parts</span> = [<span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">$0</span>), <span class="ruby-constant">RUBY_PATCHLEVEL</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-constant">RUBY_PLATFORM</span>, <span class="ruby-constant">RUBY_VERSION</span>, <span class="ruby-constant">RUBY_VERSION</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">$0</span>)), <span class="ruby-identifier">ruby_bin_name</span>]
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-identifier">$faster_require_ignore_pwd_for_cache</span>)
+    <span class="ruby-comment"># add in Dir.pwd</span>
+    <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>)
+    <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">p</span> <span class="ruby-string">&#39;ignoring dirpwd for cached file location&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">sanitized_parts</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sanitize</span>(<span class="ruby-identifier">part</span>)}
+
+  <span class="ruby-identifier">full_parts_hash</span> = <span class="ruby-identifier">string_array_cruddy_hash</span>(<span class="ruby-identifier">parts</span>).<span class="ruby-identifier">to_s</span>
+  
+  <span class="ruby-identifier">loc_name</span> = (<span class="ruby-identifier">sanitized_parts</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>] <span class="ruby-operator">+</span> (<span class="ruby-identifier">part</span>[<span class="ruby-value">-5</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>)}).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;-&#39;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&#39;-&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">full_parts_hash</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;.marsh&#39;</span>
+  
+  <span class="ruby-identifier">@@loc</span> = <span class="ruby-identifier">@@dir</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;/&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">loc_name</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">@@loc</span>)
+    <span class="ruby-constant">FastRequire</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">@@loc</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">@@require_locs</span> = {}
+  <span class="ruby-keyword">end</span>
+    
+  <span class="ruby-identifier">@@already_loaded</span> = {}
+
+  <span class="ruby-identifier">$LOADED_FEATURES</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">already_loaded</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># in 1.8 they might be partial paths</span>
+    <span class="ruby-comment"># in 1.9, they might be non collapsed paths</span>
+    <span class="ruby-comment"># so we have to sanitize them here...</span>
+    <span class="ruby-comment"># XXXX File.exist? is a bit too loose, here...</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">already_loaded</span>)
+      <span class="ruby-identifier">key</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">already_loaded</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">key</span> = <span class="ruby-constant">FastRequire</span>.<span class="ruby-identifier">guess_discover</span>(<span class="ruby-identifier">already_loaded</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">already_loaded</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">@@already_loaded</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-keyword">true</span>
+  }
+
+  <span class="ruby-identifier">@@already_loaded</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-keyword">__FILE__</span>)] = <span class="ruby-keyword">true</span> <span class="ruby-comment"># this file itself isn&#39;t in loaded features, yet, but very soon will be..</span>
+  <span class="ruby-comment"># a special case--I hope...</span>
+
+  <span class="ruby-comment"># also disallow re-loading $0</span>
+  <span class="ruby-identifier">@@require_locs</span>[<span class="ruby-identifier">$0</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">$0</span>) <span class="ruby-comment"># so when we run into $0 on a freak require, we will skip it...</span>
+  <span class="ruby-identifier">@@already_loaded</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">$0</span>)] = <span class="ruby-keyword">true</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-string_array_cruddy_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_array_cruddy_hash</span><span
+            class="method-args">(strings)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>appears 1.9.x has inconsistent string hashes…so roll our own…</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_array_cruddy_hash-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">string_array_cruddy_hash</span> <span class="ruby-identifier">strings</span>
+  <span class="ruby-comment"># we only call this method once, so overflowing to a bignum is ok</span>
+  <span class="ruby-identifier">hash</span> = <span class="ruby-value">1</span>;
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">string</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">strings</span>
+    <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">hash</span> <span class="ruby-operator">*</span> <span class="ruby-value">31</span>
+    <span class="ruby-identifier">string</span>.<span class="ruby-identifier">each_byte</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">hash</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">b</span>
+    }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">hash</span> <span class="ruby-comment"># probably a Bignum (sigh)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-require_cached" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require_cached</span><span
+            class="method-args">(lib)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="require_cached-source">
+            <pre><span class="ruby-comment"># File lib/faster_require-0.9.4/lib/faster_require.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">require_cached</span> <span class="ruby-identifier">lib</span>
+  <span class="ruby-identifier">lib</span> = <span class="ruby-identifier">lib</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-comment"># might not be zactly 1.9 compat... to_path ??</span>
+  <span class="ruby-constant">ALL_IN_PROCESS</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">lib</span>, <span class="ruby-identifier">@@count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>]
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">p</span> <span class="ruby-string">&#39;doing require &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39; from &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">caller</span>[<span class="ruby-value">-1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">known_loc</span> = <span class="ruby-identifier">@@require_locs</span>[<span class="ruby-identifier">lib</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@already_loaded</span>[<span class="ruby-identifier">known_loc</span>]
+        <span class="ruby-identifier">p</span> <span class="ruby-string">&#39;already loaded &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">known_loc</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> 
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">@@already_loaded</span>[<span class="ruby-identifier">known_loc</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">known_loc</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/\.#{RbConfig::CONFIG[&#39;DLEXT&#39;]}$/</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;doing original_non_cached_require on .so full path &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">known_loc</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+        <span class="ruby-identifier">original_non_cached_require</span> <span class="ruby-identifier">known_loc</span> <span class="ruby-comment"># not much we can do there...too bad...well at least we pass it a full path though :P</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">$LOADED_FEATURES</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">known_loc</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">known_loc</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/rubygems.rb$/</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;requiring rubygems &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+            <span class="ruby-identifier">original_non_cached_require</span>(<span class="ruby-identifier">lib</span>) <span class="ruby-comment"># revert to normal require so rubygems doesn&#39;t freak out when it finds itself already in $LOADED_FEATURES with rubygems &gt; 1.6 :P</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-constant">IN_PROCESS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">known_loc</span>
+            <span class="ruby-keyword">begin</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;doing cached loc eval on &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;=&gt;&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">known_loc</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; with stack:&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">IN_PROCESS</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-identifier">$LOADED_FEATURES</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">known_loc</span>
+              <span class="ruby-comment"># fakely add the load path, too, so that autoload for the same file/path in gems will work &lt;sigh&gt; [rspec2]</span>
+              <span class="ruby-identifier">no_suffix_full_path</span> = <span class="ruby-identifier">known_loc</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\.[^.]+$/</span>, <span class="ruby-string">&#39;&#39;</span>)
+              <span class="ruby-identifier">no_suffix_lib</span> = <span class="ruby-identifier">lib</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\.[^.]+$/</span>, <span class="ruby-string">&#39;&#39;</span>)
+              <span class="ruby-identifier">libs_path</span> = <span class="ruby-identifier">no_suffix_full_path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">no_suffix_lib</span>, <span class="ruby-string">&#39;&#39;</span>)
+              <span class="ruby-identifier">libs_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">libs_path</span>) <span class="ruby-comment"># strip off trailing &#39;/&#39;</span>
+              
+              <span class="ruby-identifier">$:</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">libs_path</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">$:</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">libs_path</span>) <span class="ruby-comment"># add in this ones real require path, so that neighboring autoloads will work</span>
+              <span class="ruby-identifier">known_locs_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">known_loc</span>)
+              <span class="ruby-identifier">$:</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">known_locs_dir</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">$:</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">known_locs_dir</span>) <span class="ruby-comment"># attempt to avoid the regin loading bug...yipes.</span>
+              
+              <span class="ruby-comment"># try some more autoload conivings...so that it won&#39;t attempt to autoload if it runs into it later...</span>
+              <span class="ruby-identifier">relative_full_path</span> = <span class="ruby-identifier">known_loc</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-identifier">libs_path</span>, <span class="ruby-string">&#39;&#39;</span>)[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+              <span class="ruby-identifier">$LOADED_FEATURES</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">relative_full_path</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">$LOADED_FEATURES</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">relative_full_path</span>) <span class="ruby-comment"># add in with .rb, too, for autoload </span>
+                
+              <span class="ruby-comment"># load(known_loc, false) # too slow</span>
+              
+              <span class="ruby-comment"># use eval: if this fails to load breaks re-save the offending file in binary mode, or file an issue on the faster_require tracker...</span>
+              <span class="ruby-identifier">contents</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">known_loc</span>, <span class="ruby-string">&#39;rb:utf-8&#39;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span>} <span class="ruby-comment"># read only costs 0.34/10.0 s...</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">contents</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/require_relative/</span> <span class="ruby-comment"># =~ is faster apparently faster than .include?</span>
+                <span class="ruby-identifier">load</span>(<span class="ruby-identifier">known_loc</span>, <span class="ruby-keyword">false</span>) <span class="ruby-comment"># load is slow, but overcomes a ruby core bug: http://redmine.ruby-lang.org/issues/4487</span>
+              <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">contents</span>, <span class="ruby-constant">TOPLEVEL_BINDING</span>, <span class="ruby-identifier">known_loc</span>)
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">ensure</span>
+              <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;unexpected&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">IN_PROCESS</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">known_loc</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;ignoring already loaded [circular require?] &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">known_loc</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># we don&#39;t know the location--let Ruby&#39;s original require do the heavy lifting for us here</span>
+      <span class="ruby-identifier">old</span> = <span class="ruby-identifier">$LOADED_FEATURES</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-string">&#39;doing old non-known location require &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+      <span class="ruby-keyword">if</span>(<span class="ruby-identifier">original_non_cached_require</span>(<span class="ruby-identifier">lib</span>))
+        <span class="ruby-comment"># debugger might land here the first time you run a script and it doesn&#39;t have a require</span>
+        <span class="ruby-comment"># cached yet...</span>
+        <span class="ruby-identifier">new</span> = <span class="ruby-identifier">$LOADED_FEATURES</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">old</span>
+        <span class="ruby-identifier">found</span> = <span class="ruby-identifier">new</span>.<span class="ruby-identifier">last</span>
+
+        <span class="ruby-comment"># incredibly, in 1.8.x, this doesn&#39;t always get set to a full path.</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&lt;</span> <span class="ruby-string">&#39;1.9&#39;</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">found</span>)
+            <span class="ruby-comment"># discover the full path.</span>
+            <span class="ruby-identifier">dir</span> = <span class="ruby-identifier">$:</span>.<span class="ruby-identifier">find</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">path</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;/&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">found</span>)}
+            <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">dir</span> <span class="ruby-comment"># give up, case jruby socket.jar &quot;mysterious&quot;</span>
+            <span class="ruby-identifier">found</span> = <span class="ruby-identifier">dir</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;/&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">found</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">found</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">found</span>);
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;found new loc:&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;=&gt;&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">found</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+        <span class="ruby-identifier">@@require_locs</span>[<span class="ruby-identifier">lib</span>] = <span class="ruby-identifier">found</span>
+        <span class="ruby-identifier">@@already_loaded</span>[<span class="ruby-identifier">found</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">else</span>
+      
+        <span class="ruby-comment"># this is expected if it&#39;s for libraries required before faster_require was [like rbconfig]</span>
+        <span class="ruby-comment"># raise &#39;actually expected&#39; + lib if RUBY_VERSION &gt;= &#39;1.9.0&#39;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;already loaded, apparently [require returned false], trying to discover how it was redundant... &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+        <span class="ruby-comment"># this probably was something like</span>
+        <span class="ruby-comment"># the first pass was require &#39;regdeferred&#39;</span>
+        <span class="ruby-comment"># now it&#39;s a different require &#39;regdeferred.rb&#39;</span>
+        <span class="ruby-comment"># which fails (or vice versa)</span>
+        <span class="ruby-comment"># so figure out why</span>
+        <span class="ruby-comment"># calc location, expand, map back</span>
+        <span class="ruby-identifier">where_found</span> = <span class="ruby-constant">FastRequire</span>.<span class="ruby-identifier">guess_discover</span>(<span class="ruby-identifier">lib</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">where_found</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;inferred lib loc:&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;=&gt;&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">where_found</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+          <span class="ruby-identifier">@@require_locs</span>[<span class="ruby-identifier">lib</span>] = <span class="ruby-identifier">where_found</span>
+          <span class="ruby-comment"># unfortunately if it&#39;s our first pass</span>
+          <span class="ruby-comment"># and we are in the middle of a &quot;real&quot; require</span>
+          <span class="ruby-comment"># that is circular</span>
+          <span class="ruby-comment"># then $LOADED_FEATURES or (AFAIK) nothing will have been set</span>
+          <span class="ruby-comment"># for us to be able to assert that</span>
+          <span class="ruby-comment"># so...I think we&#39;ll end up</span>
+          <span class="ruby-comment"># just fudging for a bit</span>
+          <span class="ruby-comment">#   raise &#39;not found&#39; unless @@already_loaded[where_found] # should have already been set...I think...</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+            <span class="ruby-comment"># happens for enumerator XXXX</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;unable to infer &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lib</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39; location&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$FAST_REQUIRE_DEBUG</span>
+            <span class="ruby-identifier">@@already_loaded</span>[<span class="ruby-identifier">found</span>] = <span class="ruby-keyword">true</span> <span class="ruby-comment"># so hacky...</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-comment"># XXXX test all these return values</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;huh&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">ALL_IN_PROCESS</span>.<span class="ruby-identifier">pop</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">lib</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
