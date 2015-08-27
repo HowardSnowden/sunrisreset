@@ -14,19 +14,19 @@ var ready = function(){
     
     $('.logo .btn').click(function(e){
     e.preventDefault();
-
+    var h = $('.shower').first().outerHeight(true) * $('.shower').size()+600;
     if ($('.logo .btn').text() === 'View Upcoming Shows'){
-    $('#head-img').css('height', '1000px');
+    $('#head-img').css({'background-attachment': 'fixed', 'height':h + 'px'});
     $(window).scrollTop(0);
     
     $('#homeheader').animate({'height': '100%'}, 100, function(){
-         $('#body, #footer, #main-nav, .logo h2, .logo img').hide();
-    $('.logo').css({'position':'fixed', 'top':'0', 'z-index':'100', 'width': '100%', 'margin-left':'-30px'});
-    $('.logo .btn').css({'width':'100%', 'max-width':'none', 'background-color':'rgba(133, 114, 242, 0.59)', 'display':'block'})
-            .html('Return to Main Page');
-    $('#homeheader').css('overflow-y', 'scroll');
-    $('body').css('overflow', 'hidden');
-    $('.shows').animate({'left':'0%'}, 300);
+         $('#body,  #main-nav, .logo h2, .logo img').hide();
+            $('.logo').css({'position':'fixed', 'top':'0', 'z-index':'100', 'width': '100%', 'margin-left':'-30px'});
+            $('.logo .btn').css({'width':'100%', 'max-width':'none', 'background-color':'rgba(133, 114, 242, 0.59)', 'display':'block'})
+                    .html('Return to Main Page');
+//            $('#homeheader').css('overflow-y', 'scroll');
+            $('body').css('overflow', 'auto');
+            $('.shows').animate({'left':'0%'}, 300);
     
     });
    
@@ -40,7 +40,7 @@ var ready = function(){
         $('.logo .btn').css({'width':'inherit', 'max-width':'300px', 'background-color':'rgba(0, 118, 255, 0.88)', 'display':'block'})
             .html('View Upcoming Shows');
         $('.logo').css({'position':'static', 'width': 'inherit', 'margin-left':'auto'});
-        $('#body, #footer, #main-nav, .logo h2, .logo img').fadeIn();
+        $('#body,  #main-nav, .logo h2, .logo img').fadeIn();
             $('#head-img').css('height', '700px'); 
          $('#homeheader').animate({'height':'38%'}, 100);
            
