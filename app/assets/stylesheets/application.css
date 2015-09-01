@@ -38,7 +38,7 @@ body {
 }
 @media screen and (min-width: 900px){
     .posts .row{
-        width:92%;
+        width:80%;
         margin-right:auto;
         margin-left:auto;
     }
