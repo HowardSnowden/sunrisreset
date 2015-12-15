@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     end
     
     def see
-      @videos = Video.all
+      @videos = Video.order(created_at: :desc)
       
     end
     
