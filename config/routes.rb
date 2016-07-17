@@ -15,7 +15,7 @@ devise_for :admins, :skip => [:sessions]
   
   get 'index' 	=> 'pages#home' 
   get 'see'		=> 'pages#see'
-  get 'hear'	=> 'pages#hear'
+  get 'music'	=> 'pages#hear'
   get 'shows' => 'pages#shows'
   get 'contact' =>  'pages#contact'
   get 'songs/dynamic_index' => 'songs#dynamic_index'
@@ -30,8 +30,7 @@ devise_for :admins, :skip => [:sessions]
   resources :backgrounds, only: [:new, :create]
   resources :band_photos, only: [:new, :create]
   resources :albums
-  
-  get 'bio/edit' => 'abouts#edit'
+  resources :abouts
   patch 'abouts' => 'abouts#update'
 
 end

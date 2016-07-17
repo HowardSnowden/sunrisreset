@@ -1,2 +1,8 @@
-$('#new_email_prop').remove();
-$('#body').load('/success.html');
+
+$("#new_email_prop input[name='commit']").removeClass('ajax-loading');
+var button = $("#new_email_prop .btn");
+button.val('Message sent!');
+
+window.setTimeout(function () {
+    button.val('Send Message');
+}, 5000);

@@ -16,27 +16,34 @@
         -if current_page?(:controller => '/pages', action:'see')
             iframe#ytplayer  {allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/#{@videos.first.vid_id}?controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=1&color=white&theme=light&origin=#{origin}"  type="text/html"  width="900"}  
 
-                    
-        ul.nav.navbar-nav.pull-right.staticNav id='main-nav'
+        
+        .hidden-md.hidden-lg.hideNav
+                      = link_to "hideNav"
+                         i.fa.fa-bars.fa-2x    
+        ul.nav.navbar-nav.staticNav id='main-nav'
                     
 
-                    li.hidden-md.hidden-lg.hideNav
-                      = link_to "hideNav"
-                         i.fa.fa-bars.fa-2x
+                   
+                    li   
+                       = link_to "Home", '/'
                     li 
-                        a href='/#featured-video'
+                        a href='/#band'
                           = 'Band'
                     li 
                         = link_to "Shows", shows_path
 
+                    li.icon-logo.hidden-xs.hidden-sm
+                        a href = '/'
+                          span class="icon-sunriselogo"
+                    li 
+                        = link_to "Music", music_path
+
                     li  
                         = link_to "Videos",  see_path
-                    li 
-                        = link_to "Music", hear_path
+                    
                     li
-                     a href = '/'
-                      img.img-response width='100' src=image_path('sunriselogo.png')  
-                        
+                        = link_to "Contact", contact_path
+                   
                     - if admin_signed_in?
                          = render 'devise/menu/login_items'
                     

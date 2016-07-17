@@ -34,8 +34,49 @@ html
       }
       .btn a:hover{
 
+      }  
+
+      .caption span{
+      color: #{@body_text_color};
+      font-size: 16px !important;
       }
 
+    
+      #main-nav{
+        background-color:#{@main_color};
+
+      }
+
+      .icon-sunriselogo{
+      width:100%;
+      height: 100%;
+      margin:0;
+      }
+       .icon-sunriselogo:before{
+          content: "\e900";
+          font-family: 'icomoon';
+          speak: none;
+          font-size:4em;
+        
+          color: #{@main_color};
+        
+          
+      }
+          
+        
+      .icon-logo{
+        background-color: #{@link_color};
+        padding:0;
+        
+
+      } 
+
+      .icon-logo a {
+        padding: 0 !important;
+        margin-right: -3px;
+        margin-top: 20px;
+      }
+  
 
       .song_kick{
         background-color: rgba(0,0,0,0.32);
@@ -56,20 +97,24 @@ html
         padding:5px;
         text-align: center;
       }
+
+      
       .featured_links a {
          background-color:transparent;
          border:none;
         text-align:center;
         width:100%;
-          }      
+        padding: 0px;
+          }    
+
+      
       
       #featured-video{
         margin-top: 125px;
         margin-bottom: 125px;
+
       }
       #featured-video iframe{
-        margin: auto;
-        width: 75%;
 
         display:block;
 
@@ -83,23 +128,77 @@ html
 
       #bio p {
        width:75%;
-       font-size:1.5em;
+       font-size:1.2em;
        color: #{@body_text_color}
+       height:100%;
+       margin-bottom:0;
 
       }
 
       #bio{
+      height:100%;
+
+      }
+
+      #bio .btn.btn-default{
+        width: 75%;
+        background-color:#{@main_color};
+        color: #{@link_color};
+        margin-top: 10px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 2px;
+        margin-left:auto;
+        margin-right:auto;
+
+      }
+
+      #bio p{
+       width: 75%;
+       margin-left: auto;
+       margin-right: auto;
+      }
+      .band-band{
+        margin-top: 50px;
+        margin-bottom: 50px;
       }
 
      #band{
-      margin-bottom:2em;
+      text-align:center;
      }
      #band * {
      width: 75%;
      margin: 0 auto;
-     text-align:center;
-     font-size:4em;
+     
      }
+
+
+     #band .thumbnail{
+      height:100%;
+      background-color: #{@main_color};
+      
+     }
+
+     #band .thumbnail img{
+      width: 100%;
+      height: 100%;
+      padding:0;
+     }
+
+     
+
+     
+           .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .row > [class*='col-'] {
+        display: flex;
+        flex-direction: column;
+      }
+           
 
 
   

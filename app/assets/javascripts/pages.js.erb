@@ -54,71 +54,18 @@ var ready = function(){
     });
     
     //sticky menu
-    
-        var stickyNavTop = $('#main-nav').offset().top;
-        
-        var stickyNav = function(){
-        var scrollTop = $(window).scrollTop();
-
-        if (scrollTop > stickyNavTop  ) { 
-            $('#main-nav').removeClass('staticNav');
-            $('#main-nav').addClass('sticky');
-          if (!$('.hideNav ~ li').hasClass('gone')){
-            $('#main-nav').removeClass('staticColor');
-            $('#main-nav').addClass('stickColor');
-          }
-           
-        } else {
-            $('#main-nav').removeClass('sticky'); 
-            $('#main-nav').addClass('staticNav'); 
-            $('#main-nav').removeClass('stickColor');
-             $('#main-nav').addClass('staticColor');
-        }
-        };
-
-        stickyNav();
-
-        $(window).scroll(function() {
-            stickyNav();
-});
-
- ///mobile hide
-    $('#main-nav .fa-bars, .hideNav').click(function(e){
+     $(window).resize(function(e){
         e.preventDefault();
-        if (!$('.hideNav ~ li').hasClass('gone')){
-    $('.hideNav ~ li').animate({'margin-right':'-100%'}, 200, function(){
-        $(this).addClass('gone');
-        $('#main-nav').removeClass('stickColor');
-        $('main-nav').addClass('staticColor');
-
-    });
+        if ($(window).width() > 800){
+          $('#main-nav').show();
         }
-       else { 
-           $('.hideNav ~ li').animate({'margin-right':'0%'}, 200, function(){
-            $(this).removeClass('gone');
-            if ($('#main-nav').css('position') === 'fixed'){
-           $('#main-nav').removeClass('staticColor');
-           $('#main-nav').addClass('stickColor');
-            }
-           
+     })
+   ///mobile hide
+ 
+    $('.hideNav').click(function(e){
+      e.preventDefault();
+      $('#main-nav').toggle();
     });
-       }
-    });
-    
-    if ($('.fa-bars').is(':visible')){
-        $('.hideNav ~ li').css({'margin-right':'-100%'});
-        $('.hideNav ~ li').addClass('gone');
-    }
-    
-        
-        
-   $(window).resize(function(){
-        if ($(window).width() > 500 && $('.hideNav ~ li').hasClass('gone')){
-            $('.hideNav ~ li').css({'margin-right':'0%'}).removeClass('gone');
-        }
-    });
-    
-        
 
     
 $(function()

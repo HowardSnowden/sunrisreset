@@ -18,7 +18,7 @@ def update
 	@about = About.find(About.first)
 
 		if @about.update(about_params)
-			redirect_to '/about' 
+			redirect_to '/#band' 
 		else
 			render 'edit'
 		end
