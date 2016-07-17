@@ -3,7 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :set_default_img
+  before_filter :set_site_settings
   def set_default_img
-      @back_img = view_context.image_path('TractorLogo2.jpg') 
+      @back_img = view_context.image_path(
+      	SiteSetting.first.main_background) 
   end 
+
+  def set_site_settings
+  	s = SiteSetting.first
+  	@main_color = s.main_color
+  	@header_text_color = s.header_text_color
+  	@body_text_color = s.body_text_color
+  	@background_color = s.background_color
+  	@link_color = s.link_color
+  end
 end

@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.minicolors
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-markdown-bundle
+//= require jquery_nested_form
 //= require_tree .
+

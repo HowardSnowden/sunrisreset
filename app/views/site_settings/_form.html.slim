@@ -1,0 +1,99 @@
+= form_for @site_settings do |f|
+  - if @site_settings.errors.any?
+    #error_explanation
+     .col-md-9.col-md-offset-1
+            #error_explanation
+              h4
+                = pluralize(@site_settings.errors.count, "error ")
+                | prohibited this post from being saved:
+              ul
+                - @site_settings.errors.full_messages.each do |msg|
+                  li.error= msg
+  - if flash[:notice] 
+      .col-md-9.col-md-offset-1
+        h4
+          = flash[:notice]
+  .container-fluid
+    .col-md-9.form-form
+      .form-inline
+        .form-group
+              p
+                = f.label :main_color
+              br
+                = f.text_field :main_color, class:'form-control input-lg'
+        .form-group
+              p
+                = f.label :body_text_color
+              br
+                = f.text_field :body_text_color, class:'form-control input-lg'
+        .form-group
+              p
+                = f.label :header_text_color
+              br
+                = f.text_field :header_text_color, class:'form-control input-lg'
+        .form-group
+              p
+                = f.label :link_color
+              br
+                = f.text_field :link_color, class:'form-control input-lg'
+        .form-group
+              p
+                = f.label :background_color
+              br
+                = f.text_field :background_color, class:'form-control input-lg'
+      br
+      .form-group
+            p
+              = f.label :featured_text
+            br
+              = f.text_field :feature_text, class:'form-control'
+      .form_inline
+        .form-group
+          p
+            = "Featured Links"
+            = f.collection_check_boxes(:featured_link_ids, Link.all, :id, :title) 
+        .form-group
+            p
+              = f.label :featured_video
+              .text-right 
+                = link_to 'Add more videos', new_video_path 
+            ul.row
+            - Video.all.each do |v|
+              li.col-md-3.col-sm-4.col-xs-12
+                img.img-thumbnail src= get_thumbnail(v.vid_id)
+                = f.radio_button :featured_video, v.id
+
+      .form-group
+            p
+              = f.label :main_background
+            .text-right 
+                = link_to 'Upload more backgrounds', new_background_path
+            ul.row
+
+            - @backgrounds.each do |b|
+              li.col-md-3.col-sm-4.col-xs-12 
+                img.img-thumbnail src= b.image.url
+                = f.radio_button :main_background, b.image_url 
+
+            .row
+
+      .form-group
+            p
+              = f.label :band_photo
+            ul.row
+            .text-right 
+                = link_to 'Upload more band photos', new_band_photo_path
+
+            - @band_photos.each do |b|
+              li.col-md-3.col-sm-4.col-xs-12 
+                img.img-thumbnail src= b.image.url
+                = f.radio_button :band_photo, b.image_url 
+            .row
+
+      = f.hidden_field :site_setting_id, value: 1
+
+  
+      .form-group
+              = f.submit class: 'btn btn-primary'
+      .form-group
+              = link_to 'Back to site settings', site_settings_path, class:'btn btn-default'

@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+#admin-down ul {background-color: black;}
 #homeheader{
-    background-color:rgba(255, 0, 167, 0.58);
-;
+    
     margin-left:-15px !important;
     margin-right:-15px !important;
     margin-top:0px;
@@ -20,8 +21,7 @@
    }
     
     h2{
-        color:#fff;
-//        text-shadow: 3px 1px 2px rgba(0, 0, 0, 1);
+          text-shadow: 3px 1px 2px rgba(0, 0, 0, 1);
         letter-spacing:2px;
        text-align:center;
         border-bottom:none;
@@ -31,7 +31,6 @@
     
     
     .btn {
-        background-color:rgba(0, 118, 255, 0.88);
         font-family: 'Oswald', sans-serif;
         letter-spacing:2px;
         display:block;
@@ -43,7 +42,7 @@
     }
     
     .btn:hover{
-        background-color:#ff3f82;}
+        }
     
     .logo{
         
@@ -63,7 +62,7 @@
     margin-bottom:800px;
     margin-top:50px;
   .shower{
-      background-color:rgba(0, 0, 0, 0.35);
+     
       margin-right:auto;
       margin-left:auto;
       h2{
@@ -72,7 +71,6 @@
           font-size:2em !important;
           
         span{
-            color: #ffd93a;
             font-family: "Permanent Marker", cursive;
             a {
                 text-decoration:underline !important;
@@ -99,7 +97,7 @@
 .container-fluid.posts{
     position:relative;
     padding-top:75px;
-    border:solid 5px #ff00a7;
+    border:solid 5px ;
     padding-bottom:75px;
     margin-bottom:-55px;
     .row{

@@ -24,7 +24,6 @@ gem 'rails-bootstrap-markdown'
 gem 'coffee-script-source', '1.8.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -36,7 +35,11 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'spring', group: :development
 
+gem 'nested_form'
+
 gem 'redcarpet'
+
+gem 'jquery-minicolors-rails'
 
 gem 'faster_require'
 
@@ -46,7 +49,6 @@ gem 'devise'
 
 gem 'font-awesome-sass', '~> 4.3.0'
 
-gem 'cancancan', '~> 1.10'
 gem 'slim'
-
+gem 'carrierwave'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

@@ -1,0 +1,28 @@
+= form_for @background do |f|
+  - if @background.errors.any?
+    #error_explanation
+     .col-md-9.col-md-offset-1
+            #error_explanation
+              h4
+                = pluralize(@background.errors.count, "error ")
+                | prohibited this post from being saved:
+              ul
+                - @background.errors.full_messages.each do |msg|
+                  li.error= msg
+  - if flash[:notice] 
+      .col-md-9.col-md-offset-1
+        h4
+          = flash[:notice]
+  .container-fluid
+    .col-md-9.form-form
+        .form-group
+              p
+                = f.label :image
+                br/
+                = f.file_field :image, class:'form-control'
+        =f.hidden_field :site_setting_id, value: 1
+     
+        .form-group
+                = f.submit class: 'btn btn-primary'
+        .form-group
+                = link_to 'Back to site settings', site_settings_path, class:'btn btn-default'

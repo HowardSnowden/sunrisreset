@@ -1,14 +1,13 @@
-nav.navbar.navbar-default.navbar-fixed-top id='admin_nav'
-   ul.nav.navbar-nav.pull-right
-      li.dropdown id='admin-down'
+
+      li.dropdown. id='admin-down'
         a.dropdown-toggle data-toggle='dropdown' role='button' href='#' 
             | Admin Actions
             span.caret
         ul.dropdown-menu role='menu'
             li 
-                a href = new_post_path Create Post
+                a href = new_album_path Create Album
             li
-                a href = posts_path Edit/Delete a Post
+                a href = albums_path Edit/Delete a Album
             
             li role="separator" class="divider" 
             
@@ -25,13 +24,13 @@ nav.navbar.navbar-default.navbar-fixed-top id='admin_nav'
             li role="separator" class="divider" 
             
             li 
-                a href= abouts_edit_path Edit About Page
+                a href= bio_edit_path Edit Bio
                 
             li role="separator" class="divider" 
-            li 
-                a href = new_show_path Add Show Date
             li
                 a href = shows_path Edit/Delete Shows
+            li 
+                a href = edit_site_setting_path(1) Edit site appearance
       li
         = link_to('Logout', destroy_admin_session_path, :method => :delete)
 

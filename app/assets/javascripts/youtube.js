@@ -20,12 +20,13 @@ var reloadYoutube = function () {
         });
       }
 
-      function onPlayerReady(event) {
-        $('.img-thumbnail').click(function(){
+function onPlayerReady(event) {
+    $('.img-thumbnail').click(function(){
+      
             player.loadVideoById({'videoId':$(this).next('p.vid_id').html()});
             $("html, body").animate({ scrollTop: 0 }, "slow");
             event.target.playVideo();
-        });
-      }
+       });
+    }
 
     

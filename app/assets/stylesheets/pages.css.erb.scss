@@ -1,0 +1,362 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-markdown";
+@import url(https://fonts.googleapis.com/css?family=Oswald|Raleway|Permanent+Marker);
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+//universal styles
+
+ @font-face {
+        font-family: 'icomoon';
+        src: url('<%=asset_path("icomoon.eot")%>');
+        src: url('<%=asset_path("icomoon.eot?#iefix")%>') format('embedded-opentype'),
+            url('<%=asset_path("icomoon.woff")%>') format('woff'),
+            url('<%=asset_path("icomoon.ttf")%>') format('truetype'),
+            url('<%=asset_path("icomoon.svg#icomoon")%>') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+  .icon-sunriselogo2:before {
+    content: "\e900";
+    font-family: 'icomoon';
+    speak: none;
+    font-size:2em;
+}
+
+
+
+html, html a {
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px;
+    text-decoration:none !important;
+}
+
+
+td {
+    font-family:'Oswald', sans-serif;
+}
+
+h1{
+    font-family: 'Oswald', sans-serif;
+    letter-spacing:5px;
+    font-size:3em;
+    width:100%;
+ text-shadow: 3px 1px 1px ;
+   position:relative;
+    z-index:2;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:15px 15px 15px 3%;
+    
+    
+}
+
+
+
+
+
+ h2 {
+   font-family: 'Permanent Marker', cursive;
+ }
+.title{
+    border-bottom: solid 5px;
+    
+    font-size:2.7em;
+    letter-spacing:10px;
+    padding-bottom:15px;
+    font-weight:400;
+    text-align:center;
+        
+}
+
+h4{
+    padding-left:10px;
+    padding-top:10px;
+    font-family: 'Oswald', sans-serif;
+    font-size:1.2em;
+    text-align:left;
+    letter-spacing:2px;
+}
+
+  
+
+
+
+#main-nav li a{
+    font-family:'Oswald', sans-serif;
+   text-shadow: 1px 1px 1px;
+    font-size:1.3em;
+    letter-spacing:3px;
+    
+    
+}
+
+#main-nav li{
+    padding-top:0px;
+    margin-right:0px;
+    text-align:right;
+
+    
+}
+
+
+
+#main-nav i{
+     
+     text-shadow: 1px 1px 1px rgb(0, 0, 0);
+     margin-top:-15px;
+    }
+
+
+
+
+
+#main-nav li a:hover, #main-nav li i:hover{
+  background-color:transparent;
+  
+    
+}
+
+#body ul{
+
+  padding-top:20px;
+  padding-bottom:20px;
+
+}
+  
+#body li{
+    list-style-type:none;
+    a{
+        font-family:"Permanent Marker", cursive;
+    }
+}
+li a{
+font-family:'Oswald', sans-serif;
+    font-size:1.2em;
+    letter-spacing:8px;
+    
+}
+p {
+   font-family: 'Raleway', sans-serif;
+   line-height:28px;
+   font-size:16px;
+   font-weight:400;
+    
+}
+
+
+body{
+    height:100%;
+    
+}
+
+
+
+.body{
+    padding-top:30px;
+}
+
+
+#body{
+  
+    
+    .login {
+
+        margin-top:-350px;
+       margin-bottom:50px;
+        h2{
+            text-align:center;
+        }
+        form{
+        padding:20px;
+        margin-right:auto;
+        margin-left:auto;
+        margin-bottom:200px;
+        max-width:500px;
+        
+    }
+    }
+}
+
+ .albums {
+    margin-top: -550px;
+    margin-bottom:50px;
+    width: 85%;
+    margin-left:auto;
+    margin-right:auto;
+    .controls{
+      min-height:400px;
+      padding: 5px;
+    }
+ }
+
+
+
+  #ytplayer{
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:100;
+    width:100%;
+    height:100%;
+}
+
+  .videos {
+      padding-top:75px;
+      padding-bottom:75px;
+       ul {         
+          padding:0 0 0 0;
+          margin:0 0 0 0;
+      }
+      ul li {     
+          list-style:none;
+          margin-bottom:25px; 
+          
+      h2{
+          height:40px;
+          padding:0px;
+          font-size:1.5em;
+      }
+      h5{
+          height:30px;
+          padding:0px;
+          font-family:'Oswald', sans-serif;
+          letter-spacing:2px;
+      }
+      }
+      ul li img {
+          cursor: pointer;
+      }
+      
+  
+  }
+
+ 
+
+
+.center-block{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.songs tr:after{
+    content: "";
+}
+
+.songs tr.special:after{
+    content: url(image_path('ajax-loader.gif'));
+}
+
+.ajax-loading{
+ background:url(image_path('ajax-loader.gif')) no-repeat right center;
+     
+}
+
+
+#admin_nav{
+    a{
+        color:white;
+    }
+ .dropdown-menu, li, a:hover, a:focus{
+  background-image: none;
+  filter: none;
+ }
+}
+
+
+
+
+    
+   
+#jp_container_1{
+    box-sizing: content-box;
+}
+
+
+
+ .sticky {
+    position:fixed;
+    right:0;
+    top:0;
+    z-index: 140;
+    border-top: 0;
+    
+   
+}   
+
+
+.staticNav{
+        position:fixed;
+    top:0;
+    left:0;
+  
+}
+
+
+
+
+
+.btn-primary a{
+    color:white;
+}
+
+
+.form-form{
+    width: 75%;
+    padding-top:25px;
+    padding-bottom:75px;
+    .col-md-12{ padding:100px;}
+    h2, h3{margin-left:auto; margin-right:auto; text-align:center;}
+    .btn{
+        color:white;
+        max-width:300px;
+        margin-left:auto;
+        margin-right:auto;
+        padding:10px;
+        font-family:"Oswald", sans-serif;
+    }
+}
+
+label{
+    font-family:'Permanent Marker', cursive;
+    color:#33333c
+}
+
+li.error{
+    color:red;
+    font-family:'Oswald', sans-serif;
+}
+
+
+   #head-img{
+               display:block;
+               position:relative;
+               width:100%;
+               
+               min-height:700px;
+               background-repeat: no-repeat;
+               background-position:center;
+               background-size:cover;
+               overflow-x:hidden;
+                overflow-y:hidden;
+       #main-nav{
+
+                -webkit-transition:all 0.5s ease-out;
+                -moz-transition:all 0.5s ease-out;
+                transition:all 0.5s ease-out;
+                z-index:140;
+
+            }
+          
+          }
+
+    #head-img.video{
+      height:700px;
+    }

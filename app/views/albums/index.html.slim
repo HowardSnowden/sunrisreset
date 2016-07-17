@@ -1,0 +1,15 @@
+.container-fluid.posts
+   .col-md-12
+     table.table
+        - @albums.each do |t|
+            tr
+              
+              td
+                h3 = t.release_date.strftime("%B #{t.release_date.day.ordinalize}, %Y")
+              td 
+                h2 = t.title
+             
+              td
+                    = link_to 'Edit', edit_album_path(t.id), class: 'btn btn-primary'
+              td 
+                    = link_to 'Delete', album_path(t.id), method: :delete, data: {confirm: 'Are you sure?'},  class: 'btn btn-primary delete_album', remote: true

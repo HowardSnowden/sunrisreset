@@ -1,29 +1,31 @@
 class PagesController < ApplicationController
     
     def home
-        @posts = Post.order(created_at: :desc).limit(30)
-        @shows = Show.order(show_date: :asc)
-        
+       @site_setting = SiteSetting.first      
     end
     
     def see
       @videos = Video.order(created_at: :desc)
       
     end
+
+    def shows
+
+    end
     
     def hear
-      @songs = Song.all
-      @back_img = view_context.image_path('bird.jpg')
+      @albums = Album.all.order(release_date: :desc)
+        
     end
     
     def contact
         @record = EmailProp.new
-        @back_img = view_context.image_path('Tractor.jpg')
+       
     end
     
     def about
         @abouts = About.first
-        @back_img = view_context.image_path('moon.jpg')
+      
         
     end 
 

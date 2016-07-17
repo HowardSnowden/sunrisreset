@@ -11,12 +11,6 @@
                   li.error= msg
   .container.form-form
     .col-md-10.col-md-offset-1
-        
-        .form-group
-              p
-                = f.label :name, 'Your name:'
-                br/
-                = f.text_field :name, class:'form-control'
         .form-group
               p
                 = f.label :from, 'Your email:'
@@ -24,19 +18,19 @@
                 = f.text_field :from, class:'form-control'
         .form-group
               p
-                = f.label :subject, 'This is in regards to...?'
+                = f.label :subject, 'Subject'
                 br/
                 = f.text_field :subject, class:'form-control'
               
               
         .form-group
               p
-                = f.label :body, 'The things you want to say to us :'
+                = f.label :body, 'Body'
                 br/
                 = f.text_area :body, class: 'form-control',  rows:20
                 br/
         ul#errors
         .form-group
-                = f.submit "Send Message", class: 'btn btn-primary btn-block'
+                = f.submit "Send", class: 'btn btn-primary btn-block'
         .form-group
                 = link_to 'Back to Main Page', root_url, class:'btn btn-primary btn-block'

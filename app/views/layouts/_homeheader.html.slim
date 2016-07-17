@@ -1,34 +1,43 @@
-.container-fluid id='homeheader'
-    .col-md-12.col-xs-12.col-sm-12
-        .logo
-            
-            img.img-responsive width='300px' src= image_path('sunriselogo.png')
-            h2
-              | A little band from Columbus, Ohio..
-            .btn.btn-primary
-                | View Upcoming Shows
-                
-        .shows.col-md-8.col-xs-12.col-sm-12.col-md-offset-2
-            - @shows.each do |t|
-             .shower
-                h2 
-                   | Where: 
-                   span = convert_post(t.venue)
-                  
-                h2 
-                    span = t.address
-                h2   
-                    | When:  
-                    span = t.show_date.strftime("%A, %B #{t.show_date.day.ordinalize}, %Y")
-                h2   
-                    | Starts at 
-                    -if t.start_time
-                        span = t.start_time.strftime("%I:%M%p")
-                h2  
-                    | Playing with: 
-                    -if t.bands
-                        span = convert_post(t.bands)
-                h2  
-                    | Costs: 
-                    span = t.cover
-            
+.banner
+  #big_text
+    - elems =  @site_setting.feature_text.split('|')
+    - last_elem = elems.last
+    - elems.pop
+    - elems.each do |e|
+        div = e
+  
+  h3.last_elem = last_elem
+  - col_number = (12 / @site_setting.featured_links.count).floor rescue 12
+  - @site_setting.featured_links.each do |l|
+    div class=('col-md-'+col_number.to_s)
+      .featured_links
+        a class = 'btn btn-default' href= l.link
+         h2 = l.title
+  .container-fluid
+    .col-md-12 id ='featured-video'
+      iframe.youtube {allowfullscreen="" frameborder="0" height=405 src="https://www.youtube.com/embed/#{Video.find(@site_setting.featured_video).vid_id}?controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=1& color=white&theme=light&origin=http://www.sunrisereset.com" width='100%'  type="text/html"  }
+       
+   
+css: 
+   #big_text{
+    margin-top: 100px;
+    width:75%;
+    margin-left:auto;
+    margin-right:auto;
+    text-shadow: 3px 0px 0px rgba(61, 50, 36, 0.39);
+    background-color: rgba(0,0,0,0.13);
+    padding: 10px;
+    font-family: 'Permanent Marker', sans-serif;
+   }
+  
+  .last_elem{
+   text-align:center;
+  }
+
+  #featured-video{
+    background-color: black;
+  }
+javascript: 
+    $('#big_text').bigtext();
+   
+  

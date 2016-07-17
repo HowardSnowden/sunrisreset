@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require jquery.minicolors
+ */
+
+  
+
+
+@media screen and (max-width: 500px){
+    #wrapper{
+        width:100%;
+        overflow-x:hidden;
+    }
+}
+@media screen and (min-width: 900px){
+    .posts .row{
+        width:80%;
+        margin-right:auto;
+        margin-left:auto;
+    }
+}
+
+.form-inline > *{
+  margin-right: 2em;
+
+}
+
+input[name*="site_setting"]{
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+input[name*="album"]{
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+
+li a img {
+  margin-top:-10px;
+}
+
+
+
+#header {
+   padding:0px;
+}
+    
+
+}
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.wrapper {
+    width:100%;
+    padding: 10px;
+    min-height: -webkit-calc(100% - 100px);     /* Chrome */
+    min-height: -moz-calc(100% - 100px);     /* Firefox */
+    min-height: calc(100% - 100px);     /* native */
+}
+footer {
+    position: relative;
+    clear:both;
+}
+

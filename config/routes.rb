@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 devise_for :admins, :skip => [:sessions]
   as :admin do
-    get 'mcp_is_dead_long_live_mcp' => 'devise/sessions#new', :as => :new_admin_session
+    get 'sunrise_admin' => 'devise/sessions#new', :as => :new_admin_session
     post 'signin' => 'devise/sessions#create', :as => :admin_session
     delete 'signout' => 'devise/sessions#destroy', :as => :destroy_admin_session
   end
@@ -16,7 +16,7 @@ devise_for :admins, :skip => [:sessions]
   get 'index' 	=> 'pages#home' 
   get 'see'		=> 'pages#see'
   get 'hear'	=> 'pages#hear'
-  get 'about'		=> 'pages#about'
+  get 'shows' => 'pages#shows'
   get 'contact' =>  'pages#contact'
   get 'songs/dynamic_index' => 'songs#dynamic_index'
   get 'sitemap', :to => redirect('/sitemap.xml')
@@ -26,7 +26,12 @@ devise_for :admins, :skip => [:sessions]
   resources :songs
   resources :email_props
   resources :shows
-  get 'abouts/edit' => 'abouts#edit'
-  patch 'about' => 'abouts#update'
+  resources :site_settings
+  resources :backgrounds, only: [:new, :create]
+  resources :band_photos, only: [:new, :create]
+  resources :albums
+  
+  get 'bio/edit' => 'abouts#edit'
+  patch 'abouts' => 'abouts#update'
 
 end

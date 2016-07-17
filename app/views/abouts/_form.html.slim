@@ -13,43 +13,15 @@
     .row
          .col-md-10
 
+  
           .form-group
                   p
-                    = f.label :how
-                    br/
-                    = f.text_field :how, class:'form-control'
-          .form-group
-                  p
-                    = f.label :what
-                    br/
-                    = f.text_area :what, class: 'form-control', data:{provide:'markdown'}, rows:20
-                    br/
-          .form-group
-                  p
-                    = f.label :who
+                    = f.label "Edit bio"
                     br/
                     = f.text_area :who, class: 'form-control', data:{provide:'markdown'}, rows:20
 
                     br/
-          .form-group
-                  p
-                    = f.label :when
-                    br/
-                    = f.text_area :when, class: 'form-control', data:{provide:'markdown'}, rows:20
-                    br/
-          .form-group
-                  p
-                    = f.label :where
-                    br/
-                    = f.text_area :where, class: 'form-control', data:{provide:'markdown'}, rows:20
-                    br/
-
-          .form-group
-                  p
-                    = f.label :why
-                    br/
-                    = f.text_area :why, class: 'form-control', data:{provide:'markdown'}, rows:20
-                    br/
+        
           .form-group
                     = f.submit class: 'btn btn-primary'
           .form-group

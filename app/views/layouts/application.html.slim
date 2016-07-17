@@ -6,19 +6,141 @@ html
          - if current_page?(action:'hear', controller:'/pages')
             = stylesheet_link_tag 'jplayer.pink.flag.min.css'
          - if current_page?(action:'see', controller:'/pages')
-            script src= '/assets/javascripts/youtube.js'
+        
          = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
          = javascript_include_tag 'application', 'data-turbolinks-track' => true 
-         meta name="description" content = "Official site of Sunrise Reset, an indie band from Columbus, Ohio. Formerly known as Monolithic Cloud Parade, they are quite possibly the most cromulent band ever"
+         meta name="description" content = "Official site of Sunrise Reset, an indie band from Columbus, Ohio"
          
  		 = csrf_meta_tags 
-    body 
-    div id= 'wrapper'
-        div id='header'
-         = render 'layouts/header'
-        div id='body'
-		    == yield
+    css:
+      h2, #big_text, h3, h4, h1, h5, #main-nav a, #main-nav i, #main-nav .fa-bars{
+     color: #{@header_text_color};
+      }
+     body{background-color:#{@background_color};}
+      p {
+       color: #{@body_text_color};
+      } 
 
-        div id='footer' 
-         == render 'layouts/footer'
+      a {
+        color: #{@link_color};
+      }
+
+      label {
+        color: #{@body_text_color};
+      }
+
+      .btn {
+        background-color: #{@main_color};
+      }
+      .btn a:hover{
+
+      }
+
+
+      .song_kick{
+        background-color: rgba(0,0,0,0.32);
+      }
+
+       #main-nav li a:hover,  a:hover,  i:hover{
+        color: #{@main_color};
+      }
+       
+       #main-nav li a{
+        color: #{@link_color};
+       }
+   
+      
+      .featured_links {
+        width: 100%;
+        margin:5px;
+        padding:5px;
+        text-align: center;
+      }
+      .featured_links a {
+         background-color:transparent;
+         border:none;
+        text-align:center;
+        width:100%;
+          }      
+      
+      #featured-video{
+        margin-top: 125px;
+        margin-bottom: 125px;
+      }
+      #featured-video iframe{
+        margin: auto;
+        width: 75%;
+
+        display:block;
+
+
+      }
+
+      .control-group .fa-2x {
+        font-size: 0.95em !important;
+
+      }
+
+      #bio p {
+       width:75%;
+       font-size:1.5em;
+       color: #{@body_text_color}
+
+      }
+
+      #bio{
+      }
+
+     #band{
+      margin-bottom:2em;
+     }
+     #band * {
+     width: 75%;
+     margin: 0 auto;
+     text-align:center;
+     font-size:4em;
+     }
+
+
+  
+       footer {
+         
+          text-align:center; 
+          background-color: #{@main_color};
+          padding-bottom:10px;
+          padding-top:10px;
+          }
+          
+         footer h2 {
+             border-top:solid 2px;
+            color:#{@header_text_color};
+             padding-top:10px;
+             padding-bottom:20px;
+         }
+            
+          footer ul {
+            list-style-type:none;
+
+            }
+
+            footer ul li{
+            display: inline;
+            width: 150px;
+            }
+
+      .featured_links a h2{
+        padding: 5px; 
+        margin:5px;
+         background-color: #{@main_color};
+
+      }
+     
+    body 
+     .wrapper
+         div id='header'
+          = render 'layouts/header'
+         div id='body'
+		      == yield
+     footer
+         = render 'layouts/footer'
 	

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707165924) do
+ActiveRecord::Schema.define(version: 20160711013607) do
 
   create_table "abouts", force: true do |t|
     t.text "who"
@@ -40,6 +40,28 @@ ActiveRecord::Schema.define(version: 20150707165924) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
+  create_table "albums", force: true do |t|
+    t.string   "title"
+    t.date     "release_date"
+    t.string   "artwork"
+    t.string   "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "backgrounds", force: true do |t|
+    t.integer  "site_setting_id", null: false
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "band_photos", force: true do |t|
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "email_props", force: true do |t|
     t.string "name"
     t.string "from"
@@ -50,6 +72,15 @@ ActiveRecord::Schema.define(version: 20150707165924) do
   create_table "facts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "links", force: true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.integer  "ep_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "site_setting_id"
   end
 
   create_table "posts", force: true do |t|
@@ -71,6 +102,23 @@ ActiveRecord::Schema.define(version: 20150707165924) do
     t.text     "bands"
   end
 
+  create_table "site_settings", force: true do |t|
+    t.integer  "singleton_guard"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "band_photo"
+    t.string   "main_background"
+    t.string   "feature_text"
+    t.string   "main_color"
+    t.string   "header_text_color"
+    t.string   "body_text_color"
+    t.integer  "featured_video"
+    t.string   "link_color"
+    t.string   "background_color"
+  end
+
+  add_index "site_settings", ["singleton_guard"], name: "index_site_settings_on_singleton_guard", unique: true
+
   create_table "songs", force: true do |t|
     t.string   "title"
     t.string   "song_link"
@@ -79,6 +127,7 @@ ActiveRecord::Schema.define(version: 20150707165924) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "song_image"
+    t.integer  "album_id"
   end
 
   create_table "videos", force: true do |t|

@@ -1,0 +1,18 @@
+Sunrise Reset 2.0 Backlog:
+
+
+
+epoch3 Content Managment
+
+-  manage bio/ reduce abouts to just single paragraph
+-  manager for merch links
+
+
+epoch4 Layout redesign 
+ -static background image/ lay content over and possibly under
+ - move nav bar upper left fixed/ remove most javascript | no background color on scroll
+ - contact form and contact info
+- shows -- songkick
+ -keep song player/ discography | rename to music/ and purchase/stream options
+ -bio on main page/ link to page
+
