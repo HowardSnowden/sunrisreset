@@ -80,6 +80,9 @@ GEM
     multi_json (1.11.0)
     nested_form (0.3.2)
     orm_adapter (0.5.0)
+    passenger (5.0.29)
+      rack
+      rake (>= 0.8.1)
     pg (0.18.1-x86-mingw32)
     rack (1.5.2)
     rack-test (0.6.3)
@@ -166,6 +169,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   nested_form
+  passenger
   pg
   rails (= 4.1.8)
   rails-bootstrap-markdown
