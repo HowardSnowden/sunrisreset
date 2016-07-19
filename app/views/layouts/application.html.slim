@@ -32,6 +32,8 @@ html
       .btn {
         background-color: #{@main_color};
       }
+     
+
       .btn a:hover{
 
       }  
@@ -105,7 +107,8 @@ html
         text-align:center;
         width:100%;
         padding: 0px;
-          }    
+          
+        }    
 
       
       
@@ -114,6 +117,7 @@ html
         margin-bottom: 125px;
 
       }
+      
       #featured-video iframe{
 
         display:block;
@@ -147,10 +151,11 @@ html
         margin-top: 10px;
         font-family: 'Oswald', sans-serif;
         letter-spacing: 2px;
-        margin-left:auto;
-        margin-right:auto;
+        text-align:center;
 
       }
+
+
 
       #bio p{
        width: 75%;
@@ -186,8 +191,8 @@ html
 
      
 
-     
-           .row {
+     @media screen and (min-width:900px){
+      .row {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -197,6 +202,7 @@ html
       .row > [class*='col-'] {
         display: flex;
         flex-direction: column;
+      }
       }
            
 

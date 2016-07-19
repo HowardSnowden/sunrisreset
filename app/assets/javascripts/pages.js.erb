@@ -59,13 +59,21 @@ var ready = function(){
         if ($(window).width() > 800){
           $('#main-nav').show();
         }
-     })
+     });
+
    ///mobile hide
  
-    $('.hideNav').click(function(e){
+    $(document).on('click','.hideNav', function(e){
       e.preventDefault();
       $('#main-nav').toggle();
     });
+    
+    $(document).on('click', '#main-nav li', function(e){
+        if ($('.hideNav').is(':visible')){
+          $('#main-nav').hide();
+        }
+      }); 
+
 
     
 $(function()
@@ -130,7 +138,6 @@ $(document).ajaxStart(function(){
      
 $(document).ready(ready);
 $(document).on('page:load', ready);
-
 
    
 

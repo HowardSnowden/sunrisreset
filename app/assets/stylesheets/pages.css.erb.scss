@@ -114,13 +114,15 @@ text-align:center;
 
 @media screen and (max-width: 850px){
   #main-nav{
-    top:50px; 
+    background-color: rgba(0,0,0,0.8) !important;
     display:none;
+    height: 100%;
+    text-align:center;
 
   }
 
   #main-nav li{
-    padding-left: 10px;
+    padding-bottom: 2em;
   }
 }
 

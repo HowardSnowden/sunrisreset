@@ -16,3 +16,5 @@
 /tmp
 /config/environments/development.rb
 /public/uploads
+
+config/environments/production.rb
