@@ -52,7 +52,7 @@
                             a href='https://www.facebook.com/SunriseReset'
                               i.fa.fa-facebook
                         li.social
-                            a href="https://www.youtube.com/results?search_query=sunrise+reset+#{Video.find(@site_setting.featured_video).title}"
+                            a href="https://www.youtube.com/results?search_query=sunrise+reset+#{Video.find(SiteSetting.first.featured_video).title rescue ''}"
                               i.fa.fa-youtube-play
 
 
