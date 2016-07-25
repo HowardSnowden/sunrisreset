@@ -1,5 +1,5 @@
-
-      li.dropdown. id='admin-down'
+    ul.nav.navbar-nav.admin-links
+      li.dropdown id='admin-down'
         a.dropdown-toggle data-toggle='dropdown' role='button' href='#' 
             | Admin Actions
             span.caret
@@ -35,4 +35,15 @@
       li
         = link_to('Logout', destroy_admin_session_path, :method => :delete)
 
- 
+      css: 
+            .admin-links  {
+               
+                position:absolute;
+                top: 10%;
+                left: 10%;
+            }
+
+            .admin-links li a {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }

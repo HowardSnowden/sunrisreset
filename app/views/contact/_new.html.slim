@@ -1,37 +1,42 @@
 .container-fluid.contact
   .col-md-12
-      	h3 = 'Booking and Managment'
- 		p = 'sunrisereset@gmail.com'
- 		p= 'Corey Fry | Damien Pyles | Darrin Wesenberg | Michael Yonchak'
+      h3 = 'Booking and Managment'
+      p = 'sunrisereset@gmail.com'
+      p = 'Corey Fry | Damien Pyles | Darrin Wesenberg | Michael Yonchak'
 
   .col-md-12
- 	   h3 = 'Social Media'
-       ul
- 		li 
- 		  a href = 'https://twitter.com/sunrisereset'
- 		  	 = 'sunrisereset(Twitter)'
- 		  li 
- 		   a href = 'https://www.facebook.com/SunriseReset'
- 		  	  = 'sunrisereset(Facebook)'
- 		  li 
- 		   a href = 'https://www.instagram.com/sunrisereset/'
- 		   	 = 'sunrisereset(Instagram)'
-  .col-md-12
-   	h3 = 'Send Us a Message'
-  = render 'contact/form'
+     h3 = 'Social Media'
+     ul
+        li 
+         a href = 'https://twitter.com/sunrisereset'
+           = 'sunrisereset (Twitter)'
+        li 
+          a href = 'https://www.facebook.com/SunriseReset'
+            = 'sunrisereset (Facebook)'
+        li 
+          a href = 'https://www.instagram.com/sunrisereset/'
+           = 'sunrisereset (Instagram)'
+
 
 css: 
 
-   .contact{
-   	margin-top: 100px;
-   	text-align:center;
+  .contact{
+  margin-top: 100px;
+  text-align:center;
 
-   }
+  }
+    
+  .contact ul{
+    padding-bottom:5px;
+    list-style-type:none;
+    width:300px;
+    margin-left: auto;
+    margin-right: auto;
+  } 
 
- 		  
-   .contact ul, .contact li{
-   		padding-bottom:5px;
-   		margin: 0;
-   } 
-   		 
+  .contact li{
+  text-align:left;
+  margin-left: 30px;
+  }
+     
 

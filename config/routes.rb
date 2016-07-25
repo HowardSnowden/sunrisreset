@@ -17,9 +17,11 @@ devise_for :admins, :skip => [:sessions]
   get 'see'		=> 'pages#see'
   get 'music'	=> 'pages#hear'
   get 'shows' => 'pages#shows'
+  get 'band' => 'pages#band'
   get 'contact' =>  'pages#contact'
   get 'songs/dynamic_index' => 'songs#dynamic_index'
   get 'sitemap', :to => redirect('/sitemap.xml')
+
     
   resources :posts
   resources :videos

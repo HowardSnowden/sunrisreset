@@ -45,7 +45,7 @@ html
 
     
       #main-nav{
-        background-color:#{@main_color};
+        background:transparent;
 
       }
 
@@ -59,15 +59,14 @@ html
           font-family: 'icomoon';
           speak: none;
           font-size:4em;
-        
-          color: #{@main_color};
-        
+          color: #{@main_color} !important;
+          
           
       }
           
         
       .icon-logo{
-        background-color: #{@link_color};
+
         padding:0;
         
 
@@ -112,18 +111,7 @@ html
 
       
       
-      #featured-video{
-        margin-top: 125px;
-        margin-bottom: 125px;
-
-      }
-      
-      #featured-video iframe{
-
-        display:block;
-
-
-      }
+  
 
       .control-group .fa-2x {
         font-size: 0.95em !important;
@@ -149,9 +137,9 @@ html
         background-color:#{@main_color};
         color: #{@link_color};
         margin-top: 10px;
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Open Sans Condensed', sans-serif;
         letter-spacing: 2px;
-        text-align:center;
+       
 
       }
 
@@ -179,7 +167,7 @@ html
 
      #band .thumbnail{
       height:100%;
-      background-color: #{@main_color};
+      background-color: #{@background_color};
       
      }
 
@@ -196,16 +184,41 @@ html
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
+        display: -moz-box;
         display: flex;
-        flex-wrap: wrap;
+
       }
       .row > [class*='col-'] {
         display: flex;
+        display: -moz-box;
         flex-direction: column;
+         flex-wrap: wrap;
+        min-width:0;
+        min-height:0;
       }
       }
-           
 
+
+        #main-nav li a:hover, #main-nav li i:hover{
+          background-color:transparent;
+          color: #{@main_color};
+            
+        }
+
+           
+       @media screen and (min-width: 900px){
+        #main-nav{
+          margin-left:10%;
+        }
+
+      #main-nav li {
+
+
+         margin-left:0;
+         padding:0;
+        }
+
+          }
 
   
        footer {
@@ -236,9 +249,23 @@ html
       .featured_links a h2{
         padding: 5px; 
         margin:5px;
-         background-color: #{@main_color};
+         background-color: #{@background_color};
 
       }
+
+      .center-logo{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        text-align:center;
+      }
+
+      .center-logo .icon-sunriselogo:before{
+        font-size: 6em;
+      }
+
+
      
     body 
      .wrapper
@@ -246,6 +273,4 @@ html
           = render 'layouts/header'
          div id='body'
 		      == yield
-     footer
-         = render 'layouts/footer'
-	
+         

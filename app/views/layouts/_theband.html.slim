@@ -1,47 +1,16 @@
-.container-fluid.band
-    .h2-contain
-       h2 = 'Personnel'
-    .row
-        .col-md-12.col-xs-6
-          .contain
-            .col-md-4
-                 h3.name = "Corey"
-                 img.img-responsive src = image_path('corey.png')
-            .col-md-8
-                 h3 = 'Roles: '
-                 span = "Writing, caterwauling, guitaring"
+br
+br
+br
+.row.band-band
+  .col-md-6 id = 'band'
+    .thumbnail href='#'
+      img.img-responsive src =  @site_setting.band_photo
 
-                 h3 = 'Conflict Resolution Style: '
-                 span = 'Sarcastic motivational speaking'
-        .col-md-12.col-xs-6
-          .contain
-            .col-md-4
-                 h3.name = "Damien"
-                 img.img-responsive src = image_path('damien.png')
-            .col-md-8
-                 h3 = 'Roles: '
-                 span = "Guitaring, Keyboarding"
-
-                 h3 = 'Conflict Resolution Style: '
-                 span = 'Concillatory nodding         '
-    .row
-        .col-md-12.col-xs-6
-          .contain
-            .col-md-4
-                 h3.name = "Darrin"
-                 img.img-responsive src = image_path('darrin.png')
-            .col-md-8
-                 h3 = 'Roles: '
-                 span = 'Bassing, backup caterwauling'
-                 h3 = 'Conflict Resolution Style: '
-                 span = 'Polite counterpoint       '
-        .col-md-12.col-xs-6
-          .contain
-            .col-md-4
-                 h3.name = "Rob"
-                 img.img-responsive src = image_path('rob.png')
-            .col-md-8
-                 h3 = 'Roles: '
-                 span = 'Drumming, getting food'
-                 h3 = 'Conflict resolution style: '
-                 span = "Saying 'yeah'"
+  .col-md-6 id = 'bio'
+      p = About.find(1).who
+      .text-center
+       a.btn.btn-default href='/music'
+        = 'Listen Now'
+ 
+css: 
+ 

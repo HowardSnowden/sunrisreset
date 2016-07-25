@@ -1,44 +1,111 @@
-.banner
-  #big_text
-    - elems =  @site_setting.feature_text.split('|')
-    - last_elem = elems.last
-    - elems.pop
-    - elems.each do |e|
-        div = e
-  
-  h3.last_elem = last_elem
-  - col_number = (12 / @site_setting.featured_links.count).floor rescue 12
-  - @site_setting.featured_links.each do |l|
-    div class=('col-md-'+col_number.to_s)
-      .featured_links
-        a class = 'btn btn-default' href= l.link
-         h2 = l.title
-  .container-fluid
-   - unless @site_setting.featured_video.nil?
-     .col-md-12 id ='featured-video'
-       iframe.youtube {allowfullscreen="" frameborder="0" height=405 src="https://www.youtube.com/embed/#{Video.find(@site_setting.featured_video).vid_id}?controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=1& color=white&theme=light&origin=http://www.sunrisereset.com" width='100%'  type="text/html" }
+-unless @site_setting.feature_text.nil?
+  - elems = @site_setting.feature_text.split('|')
+.container-fluid.splash
+  .row.banner
+     - unless @site_setting.featured_video.nil?
        
+        
+       .col-md-7.col-md-offset-1.headline
+          -elems.each do |e|
+            h4 = e
+          #featured-video
+             iframe.youtube {allowfullscreen="" frameborder="0" width="560" height="349"  src="https://www.youtube.com/embed/#{Video.find(@site_setting.featured_video).vid_id}?controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=1& color=white&theme=light&origin=http://www.sunrisereset.com"   type="text/html" }
+       .col-md-3.download_links
+         img.img-responsive src = "#{Album.first.artwork_url}"
+
+
+         ul 
+          - Album.first.links.each do |l|
+           - icon_name = l.icon_name
+           li.social 
+             a href = l.link
+               span.icon-fa 
+                  i class="fa fa-#{icon_name} fa-2x"
+
+               span = "  #{l.title}"
+
    
 css: 
-   #big_text{
-    margin-top: 100px;
-    width:75%;
-    margin-left:auto;
-    margin-right:auto;
-    text-shadow: 3px 0px 0px rgba(61, 50, 36, 0.39);
-    background-color: rgba(0,0,0,0.13);
-    padding: 10px;
-    font-family: 'Permanent Marker', sans-serif;
-   }
-  
+
   .last_elem{
    text-align:center;
   }
 
-  #featured-video{
-    background-color: black;
+  .splash{
+    padding: 0;
   }
-javascript: 
-    $('#big_text').bigtext();
-   
+
+  #featured-video{
+    background-color: transparent;
+  }
   
+  .banner{
+    margin-top:150px;
+    margin-right:auto;
+    margin-left:auto;
+    width: 100%;
+    text-align:center;
+  }
+  
+
+    #featured-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+        border-radius:10px;
+        background-color:#{@site_setting.background_color};
+
+    }
+  #featured-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding:5px;
+    border-radius:10px;
+  }
+
+
+  .headline h4{
+    text-align:center;
+    margin:0;
+    padding-bottom:10px;
+  }
+
+  .download_links{
+    background-color: #{@site_setting.background_color};
+    border-radius: 10px;
+  }
+
+  .download_links ul {
+    list-style-type:none;
+  }
+  .download_links ul li{
+    text-align:left;
+    padding-top: 5px;
+  }
+
+  .download_links ul li a{
+    font-size: 1em;
+    letter-spacing: 2px;
+  }
+
+  .download_links img{
+    padding-top: 10px;
+  }
+
+
+  .fa-bandcamp:before {
+      font-family: Arial; /* your font family here! */
+      font-weight: bold;
+      content: 'BC';
+      font-size: 50%;
+  }
+
+  .icon-fa{
+    padding-right:5px;
+  }
+
+

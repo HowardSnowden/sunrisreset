@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711013607) do
+ActiveRecord::Schema.define(version: 20160725001402) do
 
   create_table "abouts", force: true do |t|
     t.text "who"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160711013607) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "site_setting_id"
+    t.string   "icon_name"
   end
 
   create_table "posts", force: true do |t|

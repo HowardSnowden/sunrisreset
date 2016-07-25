@@ -1,4 +1,4 @@
-   - no_background_pages = [:hear, :contact]
+   - no_background_pages = []
    - back = !no_background_pages.include?(controller.action_name.to_sym) ? "background-image: url(#{@back_img})" : nil
    - hear_class = current_page?(:controller => '/pages', action:'see') ? "video" : nil
    div id='head-img' class= hear_class  style= back
@@ -11,7 +11,10 @@
         -if current_page?(:controller => '/pages', action:'contact')
             =render 'contact/new'
        
-       
+        -if current_page?(:controller => '/pages', action: 'band')
+            =render 'layouts/theband'
+        -if current_page?(:controller => '/pages', action: 'hear')
+            =render 'layouts/hearcontrols'
         - origin = Rails.env.development? ? 'http://localhost:3000' : 'http://www.sunrisereset.com'
         -if current_page?(:controller => '/pages', action:'see')
             iframe#ytplayer  {allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/#{@videos.first.vid_id}?controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=1&color=white&theme=light&origin=#{origin}"  type="text/html"  width="900"}  
@@ -19,35 +22,57 @@
         
         .hidden-md.hidden-lg.hideNav
                       = link_to "hideNav"
-                         i.fa.fa-bars.fa-2x    
-        ul.nav.navbar-nav.staticNav id='main-nav'
-                    
+                         i.fa.fa-bars.fa-2x 
 
-                   
-                    li   
-                       = link_to "Home", '/'
-                    li 
-                        a href='/#band'
-                          = 'Band'
-                    li 
-                        = link_to "Shows", shows_path
+        .hidden-md.hidden-lg
+         .center-logo
+           a.center-butt href = '/'
+            span class='icon-sunriselogo'
+        ul.nav.navbar-nav.staticNav id='main-nav' 
+                        
 
-                    li.icon-logo.hidden-xs.hidden-sm
-                        a href = '/'
-                          span class="icon-sunriselogo"
-                    li 
-                        = link_to "Music", music_path
+                        li.icon-logo.hidden-xs.hidden-sm
+                            a href = '/'
+                              span class="icon-sunriselogo"
+                        li 
+                           = link_to "Band", band_path
+                        li 
+                            = link_to "Shows", shows_path
 
-                    li  
-                        = link_to "Videos",  see_path
-                    
-                    li
-                        = link_to "Contact", contact_path
-                   
-                    - if admin_signed_in?
-                         = render 'devise/menu/login_items'
-                    
-    
+                      
+                        li 
+                            = link_to "Music", music_path
+
+                        li  
+                            = link_to "Videos",  see_path
+                        
+                        li
+                            = link_to "Contact", contact_path
+                        li.social
+                            a href='https://www.facebook.com/SunriseReset'
+                              i.fa.fa-facebook
+                        li.social
+                            a href="https://www.youtube.com/results?search_query=sunrise+reset+#{Video.find(@site_setting.featured_video).title}"
+                              i.fa.fa-youtube-play
+
+
+                        li.social
+                            a href = 'https://instagram.com/sunrisereset'
+                              i.fa.fa-instagram
+                         
+                          
+                        li.social
+                            a href = 'https://twitter.com/sunrisereset'
+                              i.fa.fa-twitter
+                        li.social
+                            a href = 'https://soundcloud.com/sunrise-reset'
+                              i.fa.fa-soundcloud
+                                       
+                                       
+        - if admin_signed_in?
+             = render 'devise/menu/login_items'
+        
+        
 
 
             

@@ -5,7 +5,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-markdown";
-@import url(https://fonts.googleapis.com/css?family=Oswald|Raleway|Permanent+Marker);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic|Raleway);
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -22,27 +22,24 @@
         font-style: normal;
     }
 
- 
-
 
 
 html, html a {
     -webkit-font-smoothing: antialiased;
-    text-shadow: 1px 1px 1px;
+
     text-decoration:none !important;
 }
 
 
 td {
-    font-family:'Oswald', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 h1{
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     letter-spacing:5px;
     font-size:3em;
-    width:100%;
- text-shadow: 3px 1px 1px ;
+    width:100%; 
    position:relative;
     z-index:2;
     margin-top:0px;
@@ -57,7 +54,7 @@ h1{
 
 
  h2 {
-   font-family: 'Permanent Marker', cursive;
+  font-family: 'Open Sans Condensed', sans-serif;
  }
 .title{
     border-bottom: solid 5px;
@@ -73,7 +70,7 @@ h1{
 h4{
     padding-left:10px;
     padding-top:10px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size:1.2em;
     text-align:left;
     letter-spacing:2px;
@@ -84,8 +81,8 @@ h4{
 
 
 #main-nav li a{
-    font-family:'Oswald', sans-serif;
-   text-shadow: 1px 1px 1px;
+    font-family: 'Open Sans Condensed', sans-serif;
+
     font-size:1.3em;
     letter-spacing:3px;
     
@@ -93,24 +90,7 @@ h4{
 }
 
 
-@media screen and (min-width: 900px){
-#main-nav{
-float:none;
-margin:0 auto;
-display: block;
-text-align: center;
-}
 
-#main-nav li{
-display: inline-block;
-float:none;
-margin-left: 1em;
-margin-right: 1em;
- padding:0;
-text-align:center;
-}
-
-  }
 
 @media screen and (max-width: 850px){
   #main-nav{
@@ -136,21 +116,10 @@ text-align:center;
 
 
 
-#main-nav i{
-     
-     text-shadow: 1px 1px 1px rgb(0, 0, 0);
-     
-    }
 
 
 
 
-
-#main-nav li a:hover, #main-nav li i:hover{
-  background-color:transparent;
-  
-    
-}
 
 #main-nav{
   width: 100%;
@@ -167,13 +136,13 @@ text-align:center;
 #body li{
     list-style-type:none;
     a{
-        font-family:"Permanent Marker", cursive;
+        font-family: 'Open Sans Condensed', sans-serif;
     }
 }
 li a{
-font-family:'Oswald', sans-serif;
+font-family:'Open Sans Condensed', sans-serif;
     font-size:1.2em;
-    letter-spacing:8px;
+    letter-spacing:2px;
     
 }
 p {
@@ -260,7 +229,7 @@ body{
       h5{
           height:30px;
           padding:0px;
-          font-family:'Oswald', sans-serif;
+          font-family: 'Open Sans Condensed', sans-serif;
           letter-spacing:2px;
       }
       }
@@ -327,7 +296,7 @@ body{
 
 
 .staticNav{
-        position:fixed;
+        position:absolute;
     top:0;
     left:0;
   
@@ -354,18 +323,18 @@ body{
         margin-left:auto;
         margin-right:auto;
         padding:10px;
-        font-family:"Oswald", sans-serif;
+       font-family: 'Open Sans Condensed', sans-serif;
     }
 }
 
 label{
-    font-family:'Permanent Marker', cursive;
+  font-family: 'Open Sans Condensed', sans-serif;
     color:#33333c
 }
 
 li.error{
     color:red;
-    font-family:'Oswald', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 

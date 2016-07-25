@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
-    
+    before_filter :set_site_setting
     def home
-       @site_setting = SiteSetting.first      
+           
     end
     
     def see
@@ -17,17 +17,22 @@ class PagesController < ApplicationController
       @albums = Album.all.order(release_date: :desc)
         
     end
-    
-    def contact
-        @record = EmailProp.new
-       
+
+    def band
+
     end
     
-    def about
-        @abouts = About.first
-      
+    def contact
         
-    end 
+       
+    end
+
+    private
+
+    def set_site_setting
+        @site_setting ||= SiteSetting.first
+    end
+    
 
    
 end

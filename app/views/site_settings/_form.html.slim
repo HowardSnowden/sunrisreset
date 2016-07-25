@@ -51,7 +51,7 @@
         .form-group
           p
             = "Featured Links"
-            = f.collection_check_boxes(:featured_link_ids, Link.all, :id, :title) 
+            = f.collection_check_boxes(:featured_link_ids, Link.all , :id, :title) 
         .form-group
             p
               = f.label :featured_video

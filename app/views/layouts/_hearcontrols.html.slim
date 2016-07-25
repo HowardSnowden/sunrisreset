@@ -1,39 +1,71 @@
-.controls style="background-image: url(#{background}); background-position:center; background-size: cover;"
-   .row
-     .col-md-12.col-xs-12
-          span.song_title 
-             = " "
-          span.jtimer
-                   = '&nbsp;'.html_safe
- 
+.container-fluid
+  .row.player
+       
+    .col-md-12
+       h3 = Album.first.title
+       iframe style="border: 0; width: 328px; height: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=731898819/size=large/bgcol=333333/linkcol=ffffff/transparent=true/" seamless 
+        a href="http://sunrisereset.bandcamp.com/album/ep1" 
+          = "EP1 by Sunrise Reset"    
+       hr 
+       ul.download-links
+         - Album.first.links.each do |l|
+          li.social
+             - icon_name = l.icon_name
+             a href= l.link
+              i class="fa fa-#{icon_name} fa-2x"
+         - unless Album.first.zip.file.nil?
+          li 
+            a href = Album.first.zip.url
+              i class="fa fa-file-archive-o fa-2x"   
+       -if Album.all.count > 1 
+         h5 = Older Albums
 
+       
+css: 
+   .download-links, .download-links li{
+    margin: 10px;
+    padding: 2px;
+    text-align:center;
+   }
 
+   .player{
+   margin-top: 125px;
+  
+   }
+   .player iframe, .player .download-links, .player h3{
+      margin-left: auto;
+      margin-right: auto;
+      
+   }
 
-   .row
-        .col-md-6.col-xs-12.col-md-offset-6
+   .player h3{
+    margin-top: -10px;
+   }   
+   .player ul{
+    list-style-type: none;
+    margin-top: 15px;
+    margin-left: -10px;
+   }
+   .player ul li{
+   display:inline;
+   }
 
-            #song-list.scroll-pane
-                ol
-                 -ep_songs.each do |t|
-                   li 
-                     a href = t.song_link
-                        = t.title
-   .row
-     .col-md-6.col-xs-12.col-md-offset-6
+   .player ul li a{
+    letter-spacing: 2px;
 
-        ul.control-group
-            li
-               a#play 
-                 i.fa.fa-play.fa-2x
-            li
-               a#pause
-                 i.fa.fa-pause.fa-2x
-            li
-               a#stop
-                 i.fa.fa-stop.fa-2x
+   }
 
+    .fa-bandcamp:before {
+      font-family: Arial; /* your font family here! */
+      font-weight: bold;
+      content: 'BC';
+      font-size: 75%;
+  }
 
-        #jquery_jplayer_1.jp-jplayer
-           
-               
-            
+  hr{
+    background:white;
+    height:2px;
+    color:white;
+    width:50%;
+
+  }
