@@ -3,10 +3,11 @@
        
     .col-md-12
        h3 = Album.first.title
-       iframe style="border: 0; width: 328px; height: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=731898819/size=large/bgcol=333333/linkcol=ffffff/transparent=true/" seamless 
-        a href="http://sunrisereset.bandcamp.com/album/ep1" 
-          = "EP1 by Sunrise Reset"    
-       hr 
+       p align= "center"
+         iframe style="border: 0; width: 328px; height: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=731898819/size=large/bgcol=333333/linkcol=ffffff/transparent=true/" seamless 
+          a href="http://sunrisereset.bandcamp.com/album/ep1" 
+            = "EP1 by Sunrise Reset"  
+         hr 
        ul.download-links
          - Album.first.links.each do |l|
           li.social
@@ -27,7 +28,9 @@ css:
     padding: 2px;
     text-align:center;
    }
-
+   .player *{
+    max-width: 100%;
+   }
    .player{
    margin-top: 125px;
   
@@ -36,6 +39,10 @@ css:
       margin-left: auto;
       margin-right: auto;
       
+   }
+
+   .download-links{
+    margin-bottom: 15px;
    }
 
    .player h3{

@@ -1,22 +1,31 @@
-.container-fluid.contact
-  .col-md-12
+.container-fluid
+  .col-md-12.contact
       h3 = 'Booking and Managment'
       p = 'sunrisereset@gmail.com'
       p = 'Corey Fry | Damien Pyles | Darrin Wesenberg | Michael Yonchak'
 
-  .col-md-12
+  .col-md-12.contact-media
      h3 = 'Social Media'
-     ul
-        li 
+     p
          a href = 'https://twitter.com/sunrisereset'
-           = 'sunrisereset (Twitter)'
-        li 
+           span 
+              i class= 'fa fa-twitter'
+           span 
+              = 'Twitter'
+     p
           a href = 'https://www.facebook.com/SunriseReset'
-            = 'sunrisereset (Facebook)'
-        li 
+           span 
+              i class= 'fa fa-facebook'
+           span 
+              = 'Facebook'
+     
+     p
           a href = 'https://www.instagram.com/sunrisereset/'
-           = 'sunrisereset (Instagram)'
-
+           span 
+              i class= 'fa fa-instagram'
+           span 
+              = 'Instagram'
+     
 
 css: 
 
@@ -35,8 +44,14 @@ css:
   } 
 
   .contact li{
-  text-align:left;
-  margin-left: 30px;
+  text-align:center;
+
   }
      
+  .contact-media{
+    text-align:center;
+  }
 
+ .contact-media span{
+    padding: 5px;
+ }
