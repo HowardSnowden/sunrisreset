@@ -11,11 +11,12 @@
           #featured-video
              iframe.youtube {allowfullscreen="" frameborder="0" width="560" height="349"  src="https://www.youtube.com/embed/#{Video.find(@site_setting.featured_video).vid_id}?controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=1& color=white&theme=light&origin=http://www.sunrisereset.com"   type="text/html" }
        .col-md-3.download_links
-         img.img-responsive src = "#{Album.first.artwork_url}"
+         -album = Album.order(release_date: :asc).first
+         img.img-responsive src = "#{album.artwork_url}"
 
 
          ul 
-          - Album.first.links.each do |l|
+          - album.links.each do |l|
            - icon_name = l.icon_name
            li.social 
              a href = l.link

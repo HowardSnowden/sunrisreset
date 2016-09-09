@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725001402) do
+ActiveRecord::Schema.define(version: 20160909004805) do
 
   create_table "abouts", force: true do |t|
     t.text "who"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20160725001402) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "band_camp_link"
+    t.string   "band_camp_album_id"
   end
 
   create_table "backgrounds", force: true do |t|

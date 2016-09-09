@@ -2,11 +2,12 @@
   .row.player
        
     .col-md-12
-       h3 = Album.first.title
+       - album = Album.order(release_date: :desc).first
+       h3 = album.title
        p align= "center"
-         iframe style="border: 0; width: 328px; height: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=731898819/size=large/bgcol=333333/linkcol=ffffff/transparent=true/" seamless 
-          a href="http://sunrisereset.bandcamp.com/album/ep1" 
-            = "EP1 by Sunrise Reset"  
+         iframe style="border: 0; width: 328px; height: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=#{album.band_camp_album_id}/size=large/bgcol=333333/linkcol=ffffff/transparent=true/" seamless 
+          a href="#{album.band_camp_link}" 
+            = "#{album.title} by Sunrise Reset"  
          hr 
        ul.download-links
          - Album.first.links.each do |l|
@@ -19,7 +20,14 @@
             a href = Album.first.zip.url
               i class="fa fa-file-archive-o fa-2x"   
        -if Album.all.count > 1 
-         h5 = Older Albums
+         h3 = 'Older Albums'
+         ul.download-links
+          - Album.order(release_date: :desc).where.not(band_camp_album_id: nil, id: album.id).each do |a|
+            li
+
+              a href = a.band_camp_link 
+                = "#{a.title} on Bandcamp "
+
 
        
 css: 
