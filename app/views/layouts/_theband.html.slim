@@ -4,7 +4,7 @@ br
 .row.band-band
   .col-md-6 id = 'band'
     .thumbnail href='#'
-      img.img-responsive src =  @site_setting.band_photo
+      img.img-responsive src = asset_path( @site_setting.band_photo)
 
   .col-md-6 id = 'bio'
       p = About.first.who rescue nil 
