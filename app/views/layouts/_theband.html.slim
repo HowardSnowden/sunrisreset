@@ -7,7 +7,7 @@ br
       img.img-responsive src =  @site_setting.band_photo
 
   .col-md-6 id = 'bio'
-      p = About.find(1).who
+      p = About.first.who rescue nil 
       .text-center
        a.btn.btn-default href='/music'
         = 'Listen Now'

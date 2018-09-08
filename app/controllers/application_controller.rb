@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   before_filter :set_site_settings
   def set_default_img
       @back_img = view_context.image_path(
-      	SiteSetting.first.main_background) 
+      	SiteSetting.instance.main_background) 
   end 
 
   def set_site_settings
-  	s = SiteSetting.first
+  	s = SiteSetting.instance
   	@main_color = s.main_color
   	@header_text_color = s.header_text_color
   	@body_text_color = s.body_text_color

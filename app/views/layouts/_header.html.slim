@@ -1,4 +1,4 @@
-   - no_background_pages = []
+   - no_background_pages = ['new']
    - back = !no_background_pages.include?(controller.action_name.to_sym) ? "background-image: url(#{@back_img})" : nil
    - hear_class = current_page?(:controller => '/pages', action:'see') ? "video" : nil
    div id='head-img' class= hear_class  style= back
@@ -16,7 +16,7 @@
         -if current_page?(:controller => '/pages', action: 'hear')
             =render 'layouts/hearcontrols'
         - origin = Rails.env.development? ? 'http://localhost:3000' : 'http://www.sunrisereset.com'
-        -if current_page?(:controller => '/pages', action:'see')
+        -if current_page?(:controller => '/pages', action:'see') && @videos.first
             iframe#ytplayer  {allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/#{@videos.first.vid_id}?controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=1&color=white&theme=light&origin=#{origin}"  type="text/html"  width="900"}  
 
         

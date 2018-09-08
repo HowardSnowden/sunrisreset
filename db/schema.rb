@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160909004805) do
 
-  create_table "abouts", force: true do |t|
+  create_table "abouts", force: :cascade do |t|
     t.text "who"
     t.text "what"
     t.text "when"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160909004805) do
     t.text "how"
   end
 
-  create_table "admins", force: true do |t|
+  create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160909004805) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
-  create_table "albums", force: true do |t|
+  create_table "albums", force: :cascade do |t|
     t.string   "title"
     t.date     "release_date"
     t.string   "artwork"
@@ -51,32 +51,27 @@ ActiveRecord::Schema.define(version: 20160909004805) do
     t.string   "band_camp_album_id"
   end
 
-  create_table "backgrounds", force: true do |t|
+  create_table "backgrounds", force: :cascade do |t|
     t.integer  "site_setting_id", null: false
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "band_photos", force: true do |t|
+  create_table "band_photos", force: :cascade do |t|
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "email_props", force: true do |t|
+  create_table "email_props", force: :cascade do |t|
     t.string "name"
     t.string "from"
     t.string "subject"
     t.text   "body"
   end
 
-  create_table "facts", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "links", force: true do |t|
+  create_table "links", force: :cascade do |t|
     t.string   "title"
     t.string   "link"
     t.integer  "ep_id"
@@ -86,7 +81,7 @@ ActiveRecord::Schema.define(version: 20160909004805) do
     t.string   "icon_name"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.string   "image"
@@ -94,7 +89,7 @@ ActiveRecord::Schema.define(version: 20160909004805) do
     t.datetime "updated_at"
   end
 
-  create_table "shows", force: true do |t|
+  create_table "shows", force: :cascade do |t|
     t.date     "show_date"
     t.string   "venue"
     t.string   "address"
@@ -105,7 +100,7 @@ ActiveRecord::Schema.define(version: 20160909004805) do
     t.text     "bands"
   end
 
-  create_table "site_settings", force: true do |t|
+  create_table "site_settings", force: :cascade do |t|
     t.integer  "singleton_guard"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -122,7 +117,7 @@ ActiveRecord::Schema.define(version: 20160909004805) do
 
   add_index "site_settings", ["singleton_guard"], name: "index_site_settings_on_singleton_guard", unique: true
 
-  create_table "songs", force: true do |t|
+  create_table "songs", force: :cascade do |t|
     t.string   "title"
     t.string   "song_link"
     t.text     "lyrics"
@@ -133,7 +128,7 @@ ActiveRecord::Schema.define(version: 20160909004805) do
     t.integer  "album_id"
   end
 
-  create_table "videos", force: true do |t|
+  create_table "videos", force: :cascade do |t|
     t.string   "title"
     t.string   "embed_link"
     t.string   "uploader"
