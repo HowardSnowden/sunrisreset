@@ -7,10 +7,11 @@ group :development do
 	gem 'sqlite3'
 end
 group :production do
+
+   gem 'pg', '~>0.1.5'
     gem 'rails_12factor'
 end
 
-gem 'pg', '~>1.1.3'
 
 
 gem 'passenger'
