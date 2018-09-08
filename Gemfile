@@ -10,7 +10,7 @@ group :production do
     gem 'rails_12factor'
 end
 
-gem 'pg'
+gem 'pg', '~>1.1.3'
 
 
 gem 'passenger'
