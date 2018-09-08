@@ -12,7 +12,7 @@
              iframe.youtube {allowfullscreen="" frameborder="0" width="560" height="349"  src="https://www.youtube.com/embed/#{Video.find(@site_setting.featured_video).vid_id}?controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=1& color=white&theme=light&origin=http://www.sunrisereset.com"   type="text/html" }
        .col-md-3.download_links
          -album = Album.order(release_date: :asc).first
-         img.img-responsive src = "#{album.artwork_url}"
+         img.img-responsive src = asset_path(album.image_link)
 
 
          ul 
