@@ -19,4 +19,8 @@ class SiteSetting < ActiveRecord::Base
       row
     end
   end
+
+   def image_links
+     Dir.entries("#{Rails.root}/app/assets/images").select{|v| v =~ /\.jpg/}
+   end
 end

@@ -30,12 +30,12 @@
             p
               = f.label :zip
             br
-              = f.file_field :zip, class:'form-control'
+              = f.text_field :zip_link,  class:'form-control'
       .form-group
             p
               = f.label :artwork
             br
-              = f.file_field :artwork, class:'form-control'
+              = f.select :image_link, options_for_select(SiteSetting.instance.image_links, f.object.image_link), {},  class:'form-control'
       .form-group
             p
               = f.label :band_camp_link

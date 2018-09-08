@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909004805) do
+ActiveRecord::Schema.define(version: 20180908175702) do
 
   create_table "abouts", force: :cascade do |t|
     t.text "who"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160909004805) do
     t.datetime "updated_at"
     t.string   "band_camp_link"
     t.string   "band_camp_album_id"
+    t.string   "zip_link"
+    t.string   "image_link"
   end
 
   create_table "backgrounds", force: :cascade do |t|

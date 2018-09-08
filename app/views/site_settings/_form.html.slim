@@ -68,14 +68,11 @@
             .form-group
                   p
                     = f.label :main_background
-                  .text-right 
-                      = link_to 'Upload more backgrounds', new_background_path
-                  ul.row
 
-                  - @backgrounds.each do |b|
+                  - @site_settings.image_links.each do |b|
                     li.col-md-3.col-sm-4.col-xs-12 
-                      img.img-thumbnail src= b.image.url
-                      = f.radio_button :main_background, b.image_url 
+                      img.img-thumbnail src= asset_path(b)
+                      = f.radio_button :main_background, b 
 
                   .row
 
@@ -84,12 +81,11 @@
                     = f.label :band_photo
                   ul.row
                   .text-right 
-                      = link_to 'Upload more band photos', new_band_photo_path
 
-                  - @band_photos.each do |b|
+                  - @site_settings.image_links.each do |b|
                     li.col-md-3.col-sm-4.col-xs-12 
-                      img.img-thumbnail src= b.image.url
-                      = f.radio_button :band_photo, b.image_url 
+                      img.img-thumbnail src= asset_path(b)
+                      = f.radio_button :band_photo, b 
                   .row
 
             = f.hidden_field :site_setting_id, value: 1

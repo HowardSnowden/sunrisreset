@@ -52,7 +52,7 @@ class AlbumsController < ApplicationController
  private
 
  def album_params
-   params.require(:album).permit(:title, :artwork, :release_date, :zip, :band_camp_link, :band_camp_album_id, 
+   params.require(:album).permit(:title, :artwork, :release_date, :zip, :zip_link, :image_link,  :band_camp_link, :band_camp_album_id, 
    	links_attributes: [:id, :link, :title, :icon_name, :_destroy], song_ids: [] )
  end
 end

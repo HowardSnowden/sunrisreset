@@ -1,5 +1,5 @@
    - no_background_pages = ['new']
-   - back = !no_background_pages.include?(controller.action_name.to_sym) ? "background-image: url(#{@back_img})" : nil
+   - back = !no_background_pages.include?(controller.action_name.to_sym) ? "" : nil
    - hear_class = current_page?(:controller => '/pages', action:'see') ? "video" : nil
    div id='head-img' class= hear_class  style= back
         -if current_page?(:controller => '/pages', action:'home')
@@ -71,6 +71,23 @@
                                        
         - if admin_signed_in?
              = render 'devise/menu/login_items'
+        <style>
+            |#head-img::after {
+               content: "";
+              background: url(#{@back_img});
+                 opacity: 0.1;
+                 background-repeat: no-repeat;
+                 background-position: center;
+                 background-size: cover;
+                top: 0;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              position: absolute;
+              z-index: -1;   
+             }
+        </style>
+
         
         
 

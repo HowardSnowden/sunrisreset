@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_default_img
   before_filter :set_site_settings
   def set_default_img
-      @back_img = view_context.image_path(
+      @back_img = view_context.asset_path(
       	SiteSetting.instance.main_background) 
   end 
 
