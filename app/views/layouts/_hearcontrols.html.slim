@@ -2,7 +2,7 @@
   .row.player
    -  if Album.count > 0 
       .col-md-12
-         - album = Album.order(release_date: :desc).first
+         - album = Album.order(release_date: :desc).where.not(band_camp_album_id: nil).first
          h3 = album.title 
          p align= "center"
            iframe style="border: 0; width: 328px; height: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=#{album.band_camp_album_id}/size=large/bgcol=333333/linkcol=ffffff/transparent=true/" seamless 
