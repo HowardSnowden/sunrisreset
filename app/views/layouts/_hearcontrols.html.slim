@@ -1,16 +1,16 @@
 .container-fluid
   .row.player
-   -  if Album.count > 0 
+   -  if Album.where.not('band_camp_album_id IS NULL || band_camp_album_id =""').count > 0
       .col-md-12
-         - album = Album.order(release_date: :desc).where.not(band_camp_album_id: nil).first
-         h3 = album.title 
+         - album = Album.order(release_date: :desc).where.not('band_camp_album_id IS NULL || band_camp_album_id = ""').first
+         h3 = album.title  
          p align= "center"
            iframe style="border: 0; width: 328px; height: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=#{album.band_camp_album_id}/size=large/bgcol=333333/linkcol=ffffff/transparent=true/" seamless 
             a href="#{album.band_camp_link}" 
               = "#{album.title} by Sunrise Reset"  
            hr 
          ul.download-links
-           - Album.first.links.each do |l|
+           - album.links.each do |l|
             li.social
                - icon_name = l.icon_name
                a href= l.link
