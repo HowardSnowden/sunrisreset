@@ -1,8 +1,8 @@
 .container-fluid
   .row.player
-   -  if Album.where.not('band_camp_album_id IS NULL || band_camp_album_id =""').count > 0
+   -  if Album.where.not("coalesce(band_camp_album_id, '') = ''").count > 0
       .col-md-12
-         - album = Album.order(release_date: :desc).where.not('band_camp_album_id IS NULL || band_camp_album_id = ""').first
+         - album = Album.order(release_date: :desc).where.not("coalesce(band_camp_album_id, '') = ''").first
          h3 = album.title  
          p align= "center"
            iframe style="border: 0; width: 328px; height: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=#{album.band_camp_album_id}/size=large/bgcol=333333/linkcol=ffffff/transparent=true/" seamless 
