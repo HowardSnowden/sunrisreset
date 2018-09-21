@@ -1,5 +1,5 @@
 -unless @site_setting.feature_text.nil?
-  - elems = @site_setting.feature_text.split('|')
+  - elems = raw(@site_setting.feature_text.split('|')) 
 .container-fluid.splash
   .row.banner
      - unless @site_setting.featured_video.nil?
